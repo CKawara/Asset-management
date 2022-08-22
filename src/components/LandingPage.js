@@ -20,6 +20,7 @@ const LandingPage = () => {
 
                     <Row>
                         <p className='main-slogan'>Best Inventory <br/> Solution</p>
+                        <p className='lower-slogan'>Let us help you manage your assets in a <br/> simple,easy and secure way</p>
                     </Row>
 
                 </Col>

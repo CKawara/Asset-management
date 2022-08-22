@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
 
+
+
+/* fonts 
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Nunito', sans-serif;
+
+
+
+*/
 .logo{
     width: auto;
     height: 20%;
@@ -15,5 +25,12 @@
     font-family: 'Montserrat', sans-serif;
     color: white;
     font-size: 3.5rem;
+
+}
+.lower-slogan{
+    color: white;
+    font-size: 1.3rem;
+    font-family: 'Nunito', sans-serif;
+
 
 }
