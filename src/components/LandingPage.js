@@ -5,7 +5,6 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import logo from '../Assets/shipping.png'
 import Button  from 'react-bootstrap/Button'
-import bannerimg from '../Assets/circleimage.webp'
 
 const LandingPage = () => {
   return (
@@ -24,16 +23,14 @@ const LandingPage = () => {
                         <p className='main-slogan'>Best Inventory <br/> Solution</p>
                         <p className='lower-slogan'>Let us help you manage your assets in a <br/> simple,easy and secure way</p>
                         <div>      
-                            <Button id='start-btn'>Get Started</Button>
+                            <Button id='start-btn' >Get Started</Button>
                         </div>
                     </Row>
 
                 </Col>
 
 
-                <Col>
-                    {/* <img className='banner-image' src={bannerimg} alt='banner'/> */}
-                </Col>
+                
 
             </Row>
 
