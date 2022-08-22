@@ -8,8 +8,8 @@ import logo from '../Assets/shipping.png'
 const LandingPage = () => {
   return (
     <>
-        <Container fluid>
-            <Row className='ms-5 mt-4'>
+        <Container fluid className='landing p-5'>
+            <Row >
                 <Col>
                     <Row className='mt-3'>
                         <div className='d-flex'>

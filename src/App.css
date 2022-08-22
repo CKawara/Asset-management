@@ -1,5 +1,9 @@
+.App{
+    background-color: #F8F8FA;
+}
 
-body{
+.landing{
     background-image: url('./Assets/backfinal.png');
+    height: 100vh;
 
 }

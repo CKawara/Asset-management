@@ -4,19 +4,19 @@ import { BrowserRouter, Route, Routes} from "react-router-dom";
 import Home from './components/Home';
 import Dashboard from './components/Dashboard';
 import LandingPage from './components/LandingPage';
-import { useContext } from 'react';
-import { UserContext } from './custom-hooks/user';
+// import { useContext } from 'react';
+// import { UserContext } from './custom-hooks/user';
 
 function App() {
-  const { user } = useContext(UserContext)
+  // const { user } = useContext(UserContext)
   return (
     <BrowserRouter>
       <div className='App'>
       {/* <NavBar /> */}
       <Routes>
-        <Route path={'/'} element={<LandingPage/>}/>
+        <Route path={'/'} element={<LandingPage/>} exact/>
         <Route path={'/home'}  element={<Home/>} exact/>
-        <Route path={'/dashboard'} element={<Dashboard/>} />
+        <Route path={'/dashboard'} element={<Dashboard/>} exact/>
       </Routes>
       </div>
     </BrowserRouter>
