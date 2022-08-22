@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+.logo{
+    width: auto;
+    height: 20%;
+}
+
+.title{
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+
+}
+
+.main-slogan{
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    font-size: 3.5rem;
+
+}
