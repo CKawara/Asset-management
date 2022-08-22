@@ -3,8 +3,11 @@ import { BrowserRouter, Route, Routes} from "react-router-dom";
 import NavBar from './components/NavBar';
 import Home from './components/Home';
 import Dashboard from './components/Dashboard';
+import { useContext } from 'react';
+import { UserContext } from './custom-hooks/user';
 
 function App() {
+  const { user } = useContext(UserContext)
   return (
     <BrowserRouter>
       <div className='App'>
