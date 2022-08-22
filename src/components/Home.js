@@ -1,9 +1,10 @@
 import React from 'react'
+import AssetsTable from './AssetsTable'
 
 const Home = () => {
     return (
-        <div>
-            Home
+        <div className='min-h-screen'>
+            <AssetsTable/>
         </div>
     )
 }
