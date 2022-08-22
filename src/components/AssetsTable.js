@@ -6,6 +6,32 @@ const AssetsTable = () => {
   <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
     <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
       <div class="overflow-x-auto">
+      <div class="flex justify-start">
+  <div class="mb-3 xl:w-96">
+    <input
+      type="search"
+      class="
+        form-control
+        block
+        w-full
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded-2xl
+        transition
+        ease-in-out
+        m-0
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
+      "
+      id="search"
+      placeholder="Search asset"
+    />
+  </div>
+</div>
         <table class="min-w-full">
           <thead class="border-b bg-gray-50">
             <tr>
