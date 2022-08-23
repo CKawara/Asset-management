@@ -1,3 +1,4 @@
+import React from "react";
 import './App.css';
 import { BrowserRouter, Route, Routes} from "react-router-dom";
 // import NavBar from './components/NavBar';
@@ -6,6 +7,9 @@ import Dashboard from './components/Dashboard';
 import LandingPage from './components/LandingPage';
 // import { useContext } from 'react';
 // import { UserContext } from './custom-hooks/user';
+import Login from './components/Login/Login';
+
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   // const { user } = useContext(UserContext)
