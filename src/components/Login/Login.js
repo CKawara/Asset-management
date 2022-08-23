@@ -2,7 +2,8 @@
 import React, { useState } from "react";
 import './Login.css'
 import styled, { keyframes, createGlobalStyle } from "styled-components";
- 
+
+
 
 const jump = keyframes`
   from{
@@ -18,7 +19,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    background-color: white;
+    background: white;
     
   }
 
@@ -49,7 +50,7 @@ border: 0.1px solid gray;
 height: 53vh;
  
 border-radius: 15px;
-box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+box-shadow: 0px 14px 80px RGB(87, 200, 77);
 `;
 
 
@@ -57,7 +58,7 @@ const Input = styled.input`
   max-width: 100%;
   padding: 8px 13px;
   background: #f9f9fa;
-  color: #f03d4e;
+  color: black;
   margin-bottom: 0.9rem;
   border-radius: 10px;
   outline: 0;
@@ -101,9 +102,6 @@ text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.1);
 `;
 
 
-
- 
-
 function Login({ onLogin }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -118,7 +116,8 @@ function Login({ onLogin }) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ email,
+                              password }),
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
@@ -133,50 +132,48 @@ function Login({ onLogin }) {
     <>
       <GlobalStyle />
       <Wrapper>
-      
         <Form onSubmit={handleSubmit}>
-        <Title>Login</Title>
-        
-          <Input
-            type="email"
-            name="email"
-            placeholder='Email'
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <br/>
-          <Input
-            type="password"
-            name="password"
-            placeholder='Password'
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <br/>
-          <div className="custom-control custom-checkbox">
-          <input
-            type="checkbox"
-            className="custom-control-input"
-            id="customCheck1"
-          />
-          <label className="custom-control-label" htmlFor="customCheck1">
-            Remember me
-          </label>
-        </div>
-          <br/>
-          <Button variant="success" type='submit' size="lg" active>
-          {isLoading ? "Loading..." : "Submit"}
-          </Button>
-          <br/>
-          <p className="forgot-password text-right">
-           <a href="#">Forgot Password?</a>
-        </p>
+          <Title>Login</Title>
+            <Input
+              type="email"
+              name="email"
+              placeholder='Email'
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              />
+              <br/>
+            <Input
+              type="password"
+              name="password"
+              placeholder='Password'
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <br/>
+            <div className="custom-control custom-checkbox">
+            <input
+              type="checkbox"
+              className="custom-control-input"
+              id="customCheck1"
+            />
+            <label className="custom-control-label" htmlFor="customCheck1">
+              Remember me
+            </label>
+            </div>
+            <br/>
+            <Button variant="success" type='submit' size="lg" active>
+            {isLoading ? "Loading..." : "Submit"}
+            </Button>
+            <br/>
+            <p className="forgot-password text-right">
+            <a href="#">Forgot Password?</a>
+            </p>
         </Form>
-        <div>
-        {errors.map(err => {return (
-        <h3 className='errors'>{err}</h3>
-    )})}
-        </div>
+          <div>
+          {errors.map(err => {return (
+          <h3 className='errors'>{err}</h3>
+          )})}
+          </div>
       </Wrapper>
     </>
   );
