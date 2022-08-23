@@ -1,16 +1,4 @@
- container {
-    background: url(../Background.png);
+ .details-container {
+    margin-top: 5%;
+     
  }
-.login-container .col-5 img{
-    margin-top: 10%;
-}
-
-.login-container .col-5 h1{
-    color: #2CAE66;
-    font-weight: bold;
-    margin-top: 10%;
-}
-
-.login-container .col-5 Form{
-    margin-top: 20%;
-}
