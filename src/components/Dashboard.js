@@ -1,7 +1,6 @@
 import React from 'react'
 import AddUser from './AddUser'
 import NavBar from './NavBar'
-import RequestsTable from './RequestsTable'
 import UsersTable from './UsersTable'
 
 const Dashboard = () => {
@@ -13,7 +12,7 @@ const Dashboard = () => {
                 <AddUser/>
             </div>
             <hr/>
-            <RequestsTable/>
+            <UsersTable/>
         </div>
     )
 }
