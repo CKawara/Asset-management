@@ -1,16 +1,22 @@
 import React from 'react'
 import '../Styling/LandingPage.css'
 import Container from 'react-bootstrap/Container'
+import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import logo from '../Assets/shipping.png'
 import Button  from 'react-bootstrap/Button'
 
+import '../Styling/LandingPage.css' 
+import { useNavigate } from 'react-router-dom'
+
 const LandingPage = () => {
+    const navigate = useNavigate()
+
   return (
     <>
-        <Container fluid>
-            <Row className='ms-5 mt-4'>
+        <Container fluid className='landing p-5'>
+            <Row >
                 <Col>
                     <Row className='mt-3'>
                         <div className='d-flex'>
@@ -24,6 +30,8 @@ const LandingPage = () => {
                         <p className='lower-slogan'>Let us help you manage your assets in a <br/> simple,easy and secure way</p>
                         <div>      
                             <Button id='start-btn' >Get Started</Button>
+                        <div>
+                            <Button onClick={()=> navigate('/home')} id="start-btn" >Get Started</Button>
                         </div>
                     </Row>
 
@@ -31,6 +39,8 @@ const LandingPage = () => {
 
 
                 
+                <Col>
+                </Col>
 
             </Row>
 

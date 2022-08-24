@@ -15,6 +15,8 @@
     background-image: url('../Assets/backfinal.png');
 
 } */
+
+
 .logo{
     width: auto;
     height: 20%;
@@ -49,6 +51,8 @@
     box-shadow: 2px 2px 5px black;
 }
 
+
+
 #start-btn:hover{
     background-color: #2dae66;
     color: white;
@@ -67,3 +71,6 @@
     width: 100rem;
     height: 50rem;
 } */
+
+
+
