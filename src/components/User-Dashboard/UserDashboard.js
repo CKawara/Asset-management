@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import NavBar from '../NavBar';
-import UserTable from './user_table';
+import UserTable from './user_requests';
 
 function UserDashboard() {
     return (
@@ -27,6 +27,7 @@ const Divider = styled.hr`
 
 const Title = styled.h3`
 background: whitesmoke;
+font-size: 20px
   
 `;
 
