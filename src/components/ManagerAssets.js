@@ -1,5 +1,5 @@
 import React from "react";
-import AssetsTable from "./AssetsTable";
+import AssetsTable from "./AssetsTableAdm";
 import '../index.css'
 import AddAssets from "./AddAssets";
 import NavBar from "./NavBar";

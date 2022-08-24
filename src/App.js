@@ -10,6 +10,7 @@ import ManagerAssets from './components/ManagerAssets'
 // import { UserContext } from './custom-hooks/user';
 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import AdminAssets from "./components/AdminAssets";
 
 function App() {
   // const { user } = useContext(UserContext)
@@ -18,7 +19,7 @@ function App() {
       <div className='App'>
       <Routes>
         <Route path={'/'} element={<LandingPage/>}/>
-        <Route path={'/admin'}  element={<Home/>} exact/>
+        <Route path={'/admin'}  element={<AdminAssets/>} exact/>
         <Route path={'/manager'}  element={<ManagerAssets/>} exact/>
         <Route path={'/employee'}  element={<Home/>} exact/>
         <Route path={'/dashboard'} element={<Dashboard/>} />
