@@ -8,12 +8,10 @@ const ManagerAssets = () => {
 	return (
 		<div className="min-h-screen">
 			<NavBar/>
-			<div class="row">
 				<div className='relative flex flex-wrap items-center justify-between px-5'>
 					<p className='text-2xl'>Assets Available</p>
 					<AddAssets/>
 				</div>
-			</div>
 			<hr />
 			<AssetsTable />
 		</div>

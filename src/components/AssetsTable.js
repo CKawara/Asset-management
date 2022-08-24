@@ -51,7 +51,7 @@ const AssetsTable = () => {
                     Owner
                   </th>
                   <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                    Quantity
+                    Status
                   </th>
                 </tr>
               </thead>
@@ -71,7 +71,7 @@ const AssetsTable = () => {
                     Jane Doe
                   </td>
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    20
+                    Assigned
                   </td>
                 </tr>
                 <tr class="border-b transition duration-300 ease-in-out hover:bg-gray-100">
@@ -89,7 +89,7 @@ const AssetsTable = () => {
                     Jane Doe
                   </td>
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    20
+                    Assigned
                   </td>
                 </tr>
                 <tr class="border-b transition duration-300 ease-in-out hover:bg-gray-100">
@@ -107,7 +107,7 @@ const AssetsTable = () => {
                     Jane Doe
                   </td>
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    20
+                    Not Assigned
                   </td>
                 </tr>
                 <tr class="border-b transition duration-300 ease-in-out hover:bg-gray-100">
@@ -125,7 +125,7 @@ const AssetsTable = () => {
                     Jane Doe
                   </td>
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    20
+                    Not Assigned
                   </td>
                 </tr>
                 <tr class="border-b transition duration-300 ease-in-out hover:bg-gray-100">
@@ -143,7 +143,7 @@ const AssetsTable = () => {
                     Jane Doe
                   </td>
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    20
+                    Assigned
                   </td>
                 </tr>
                 <tr class="border-b transition duration-300 ease-in-out hover:bg-gray-100">
@@ -161,7 +161,7 @@ const AssetsTable = () => {
                     Jane Doe
                   </td>
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    20
+                    Assigned
                   </td>
                 </tr>
               </tbody>
