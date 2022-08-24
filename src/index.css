@@ -1,3 +1,42 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Styling for manager assets */
+#btn{
+            background-color: #2CAE66;
+            width: 6%;
+            color: #FFFFFF;
+            float: right;
+            position: inherit;
+            padding: 3px;
+            margin-right: 70px;
+            border-radius: 10%;
+
+}
+h1{
+    font-size: 1.3rem;
+    font-style: medium ;
+    margin-top: 40px;
+    margin-left: 45px;
+    
+}
+
+hr{
+    border: 1px ridge #2CAE66;
+}
+
+
+.left,
+.right {
+    width: 25%;
+}
+
+.middle {
+    width: 50%;
+}
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
