@@ -1,6 +1,6 @@
 import React from 'react'
 
-const AssetsTableAdm = () => {
+const UserAssetsTable = () => {
   return (
     <>
       <div class="flex flex-col bg-white m-7 rounded-2xl drop-shadow-md p-3">
@@ -60,12 +60,7 @@ const AssetsTableAdm = () => {
                     >
                       Description
                     </th>
-                    <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                        Owner
-                    </th>
-                    <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                        Status
-                    </th>
+                    
                   </tr>
                 </thead>
                 <tbody>
@@ -81,12 +76,6 @@ const AssetsTableAdm = () => {
                     </td>
                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                       15 inches, corei5, 8GB RAM ...
-                    </td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                      Jane Doe
-                    </td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                      Allocated
                     </td>
                   </tr>
                   <tr class="border-b transition duration-300 ease-in-out hover:bg-gray-100">
@@ -196,4 +185,4 @@ const AssetsTableAdm = () => {
     </>
   );
    }
-export default AssetsTableAdm
+export default UserAssetsTable

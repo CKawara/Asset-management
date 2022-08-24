@@ -1,6 +1,6 @@
-import AssetsTableAdm from './AssetsTableAdm'
 import AssetRequest from './AssetRequest'
 import NavBar from './NavBar';
+import UserAssetsTable from './UserAssetsTable';
 
 const Home = () => {
     return (
@@ -11,7 +11,7 @@ const Home = () => {
           <AssetRequest />
           </div>
         <hr/>
-        <AssetsTableAdm />
+        <UserAssetsTable />
       </div>
     );
 }
