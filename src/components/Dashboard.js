@@ -1,6 +1,7 @@
 import React from 'react'
 import AddUser from './AddUser'
 import NavBar from './NavBar'
+import UsersTable from './UsersTable'
 
 const Dashboard = () => {
     return (
@@ -11,6 +12,7 @@ const Dashboard = () => {
                 <AddUser/>
             </div>
             <hr/>
+            <UsersTable/>
         </div>
     )
 }

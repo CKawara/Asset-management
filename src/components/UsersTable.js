@@ -1,6 +1,6 @@
 import React from 'react'
 
-const AssetsTable = () => {
+const UsersTable = () => {
   return (
     <div class="flex flex-col bg-white m-7 rounded-2xl drop-shadow-md p-3">
       <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -36,22 +36,16 @@ const AssetsTable = () => {
               <thead class="border-b bg-gray-50">
                 <tr>
                   <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                    Asset id
+                    Name
                   </th>
                   <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                    Home
+                    Email
                   </th>
                   <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                    Category
+                    Password
                   </th>
                   <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                    Description
-                  </th>
-                  <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                    Owner
-                  </th>
-                  <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                    Quantity
+                    Role
                   </th>
                 </tr>
               </thead>
@@ -59,118 +53,88 @@ const AssetsTable = () => {
                 <tr class="border-b transition duration-300 ease-in-out hover:bg-gray-100">
                   <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">1</td>
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    Hp15
+                    Ross
                   </td>
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    Laptop
+                    ross@gmail.com
                   </td>
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    15 inches, corei5, 8GB RAM ...
+                    user
                   </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    Jane Doe
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    20
-                  </td>
+                  
                 </tr>
                 <tr class="border-b transition duration-300 ease-in-out hover:bg-gray-100">
                   <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">1</td>
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    Hp15
+                    Ross
                   </td>
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    Laptop
+                    ross@gmail.com
                   </td>
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    15 inches, corei5, 8GB RAM ...
+                    user
                   </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    Jane Doe
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    20
-                  </td>
+                  
                 </tr>
                 <tr class="border-b transition duration-300 ease-in-out hover:bg-gray-100">
                   <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">1</td>
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    Hp15
+                    Ross
                   </td>
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    Laptop
+                    ross@gmail.com
                   </td>
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    15 inches, corei5, 8GB RAM ...
+                    user
                   </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    Jane Doe
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    20
-                  </td>
+                  
                 </tr>
                 <tr class="border-b transition duration-300 ease-in-out hover:bg-gray-100">
                   <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">1</td>
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    Hp15
+                    Ross
                   </td>
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    Laptop
+                    ross@gmail.com
                   </td>
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    15 inches, corei5, 8GB RAM ...
+                    user
                   </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    Jane Doe
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    20
-                  </td>
+                  
                 </tr>
                 <tr class="border-b transition duration-300 ease-in-out hover:bg-gray-100">
                   <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">1</td>
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    Hp15
+                    Ross
                   </td>
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    Laptop
+                    ross@gmail.com
                   </td>
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    15 inches, corei5, 8GB RAM ...
+                    user
                   </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    Jane Doe
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    20
-                  </td>
+                  
                 </tr>
                 <tr class="border-b transition duration-300 ease-in-out hover:bg-gray-100">
                   <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">1</td>
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    Hp15
+                    Ross
                   </td>
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    Laptop
+                    ross@gmail.com
                   </td>
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    15 inches, corei5, 8GB RAM ...
+                    user
                   </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    Jane Doe
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    20
-                  </td>
+                  
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
       </div>
-    </div>  
+    </div>
   )
 }
 
-export default AssetsTable
+export default UsersTable
