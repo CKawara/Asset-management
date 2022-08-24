@@ -5,6 +5,8 @@ import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import logo from '../Assets/shipping.png'
+import Button  from 'react-bootstrap/Button'
+
 import '../Styling/LandingPage.css' 
 import { useNavigate } from 'react-router-dom'
 
@@ -26,6 +28,8 @@ const LandingPage = () => {
                     <Row>
                         <p className='main-slogan'>Best Inventory <br/> Solution</p>
                         <p className='lower-slogan'>Let us help you manage your assets in a <br/> simple,easy and secure way</p>
+                        <div>      
+                            <Button id='start-btn' >Get Started</Button>
                         <div>
                             <Button onClick={()=> navigate('/home')} id="start-btn" >Get Started</Button>
                         </div>
@@ -34,6 +38,7 @@ const LandingPage = () => {
                 </Col>
 
 
+                
                 <Col>
                 </Col>
 
