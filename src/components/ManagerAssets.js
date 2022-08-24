@@ -1,21 +1,19 @@
 import React from "react";
 import AssetsTable from "./AssetsTable";
 import '../index.css'
+import AddAssets from "./AddAssets";
+import NavBar from "./NavBar";
 
 const ManagerAssets = () => {
 	return (
 		<div className="min-h-screen">
+			<NavBar/>
 			<div class="row">
-				<div class="column">
-					<button type="button" id="btn">
-						Add
-					</button>
-				</div>
-				<div class="column">
-					<h1>Assets Available</h1>
+				<div className='relative flex flex-wrap items-center justify-between px-5'>
+					<p className='text-2xl'>Assets Available</p>
+					<AddAssets/>
 				</div>
 			</div>
-			<br />
 			<hr />
 			<AssetsTable />
 		</div>
