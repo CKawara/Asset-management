@@ -183,6 +183,5 @@ const AssetsTable = () => {
       </div>
     </>
   );
-}
-
+   }
 export default AssetsTable

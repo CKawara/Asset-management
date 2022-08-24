@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+
+
+/* fonts 
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Nunito', sans-serif;
+
+
+
+*/
+
+/* body{
+    background-image: url('../Assets/backfinal.png');
+
+} */
+
+
+.logo{
+    width: auto;
+    height: 20%;
+}
+
+.title{
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+
+}
+
+.main-slogan{
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    font-size: 3.5rem;
+
+}
+.lower-slogan{
+    color: white;
+    font-size: 1.3rem;
+    font-family: 'Nunito', sans-serif;
+}
+
+#start-btn{
+    padding: 5px 50px 5px 50px;
+    background-color: white;
+    color: #2dae66;
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+    border: none;
+    border-radius: 2px;
+    box-shadow: 2px 2px 5px black;
+}
+
+
+
+#start-btn:hover{
+    background-color: #2dae66;
+    color: white;
+    transform: translateY(5px);
+    transition: 0.5s;
+
+
+}
+
+#start-btn:focus{
+    border: none;
+    box-shadow: 1px 2px 5px black;
+}
+
+/* .banner-image{
+    width: 100rem;
+    height: 50rem;
+} */
+
+
+

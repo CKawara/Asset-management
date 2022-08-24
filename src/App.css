@@ -1,3 +1,13 @@
 .App{
     background-color: #F8F8FA;
 }
+
+.landing{
+    background-image: url('./Assets/backfinal.png');
+    height: 100vh;
+
+}
+hr{
+    color: #2CAE66 !important;
+}
+
