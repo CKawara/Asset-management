@@ -2,6 +2,39 @@ import React, { useState } from 'react'
 
 const AddUser = () => {
     const [showModal, setShowModal] = useState(false);
+
+    const [name,setName] = useState("")
+    const [email,setEmail] = useState("")
+    const [password,setPassword] = useState("")
+    const [role,setRole] = useState("")
+    // const [response,setResponse] = useState("")
+
+
+    const handleSubmit = (e)=>{
+        e.preventDefault()
+
+        const user = {
+            name: name,
+            email: email,
+            password: password,
+            role: role
+        }
+
+        fetch('http://127.0.0.1:3000/users',{
+            method: 'POST',
+            mode:'cors',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+        .then(res => res.json())
+        .then(data=> console.log(data.message))
+        setShowModal(false)
+
+        
+    }
+
     return (
     <>
         <button type="button" class="inline-block px-6 py-2.5 bg-emerald-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg transition duration-150 ease-in-out"
@@ -33,20 +66,20 @@ const AddUser = () => {
                 </div>
                 {/*body*/}
                 <div className="relative p-6 flex-auto">
-                    <form>
+                    <form onSubmit={handleSubmit}>
                         <div className='grid gap-6 mb-6 md:grid-cols-2'>
                             <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Name</label>
-                            <input type="text" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter User's Name" required/>
+                            <input value={name} onChange={(e)=> setName(e.target.value)} type="text" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter User's Name" required/>
 
                             <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Email</label>
-                            <input type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="John" required/>
+                            <input value={email} onChange={(e)=> setEmail(e.target.value)} type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="John" required/>
                             
                             <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Password</label>
-                            <input type="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="John" required/>
+                            <input value={password} onChange={(e)=> setPassword(e.target.value)} type="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="John" required/>
                             
                             <label for="role" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">First name</label>
-                            <select id="role" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                <option selected>Select Role</option>
+                            <select value={role} onChange={(e)=> setRole(e.target.value)} id="role" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <option defaultChecked>Select Role</option>
                                 <option value="Admin">Admin</option>
                                 <option value="Manager">Manager</option>
                                 <option value="Employee">Employee</option>
@@ -59,6 +92,7 @@ const AddUser = () => {
                             >
                             Create User
                             </button>
+                            {/* <p>{response}</p> */}
                     </form>
                 </div>
                 {/*footer*/}
