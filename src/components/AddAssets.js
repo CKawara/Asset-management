@@ -2,12 +2,44 @@ import React, { useState } from 'react'
 
 const AddAssets = () => {
     const [showModal, setShowModal] = useState(false);
+
+    const [name,setName] = useState("")
+    const [category,setCategory] = useState("")
+    const [description,setDescription] = useState("")
+    // const [response,setResponse] = useState("")
+
+
+    const handleSubmit = (e)=>{
+        e.preventDefault()
+
+        const asset = {
+            name: name,
+            category: category,
+            description: description
+        }
+
+        fetch('http://127.0.0.1:3000/assets',{
+            method: 'POST',
+            mode:'cors',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(asset)
+        })
+        .then(res => res.json())
+        .then(data=> console.log(data.message))
+        setShowModal(false)
+
+        
+    }
+     
     return (
     <>
         <button type="button" class="inline-block px-6 py-2.5 bg-emerald-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg transition duration-150 ease-in-out"
         onClick={() => setShowModal(true)}
         >
         Add Asset
+
         </button>
         {showModal ? (
         <>
@@ -33,16 +65,16 @@ const AddAssets = () => {
                 </div>
                 {/*body*/}
                 <div className="relative p-6 flex-auto">
-                    <form>
+                    <form onSubmit={handleSubmit}>
                         <div className='grid gap-6 mb-6 md:grid-cols-2'>
                             <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Name</label>
-                            <input type="text" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Asset's Name" required/>
+                            <input value={name} onChange={(e)=> setName(e.target.value)} type="text" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Asset's Name" required/>
 
                             <label for="category" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Category</label>
-                            <input type="text" id="category" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Laptop" required/>
+                            <input value={category} onChange={(e)=> setCategory(e.target.value)}  type="text" id="category" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Laptop" required/>
 
                             <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Description</label>
-                            <textarea id="description" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="describe asset" required></textarea>
+                            <textarea value={description} onChange={(e)=> setDescription(e.target.value)}  id="description" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="describe asset" required></textarea>
                             
                         </div>
                         <button

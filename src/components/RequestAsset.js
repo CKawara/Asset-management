@@ -2,6 +2,48 @@ import React, { useState } from 'react'
 
 const RequestAsset = () => {
     const [showModal, setShowModal] = useState(false);
+
+    const [name,setName] = useState("")
+    const [urgency,setUrgency] = useState("")
+    const [quantity,setQuantity] = useState("")
+    const [reason,setReason] = useState("")
+
+
+    const handleSubmit = (e)=>{
+        e.preventDefault()
+
+        const request = {
+            name: name,
+            urgency: urgency,
+            quantity: quantity,
+            reason: reason
+
+        }
+
+
+        fetch('http://127.0.0.1:3000/requests',{
+            method: 'POST',
+            mode:'cors',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(request)
+        })
+        .then(res => res.json())
+        .then(data=> console.log(data.message))
+        setShowModal(false)
+
+        
+    }
+
+
+
+
+
+
+
+
+
     return (
     <>
         <button type="button" class="inline-block px-6 py-2.5 bg-emerald-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg transition duration-150 ease-in-out"
@@ -33,10 +75,10 @@ const RequestAsset = () => {
                 </div>
                 {/*body*/}
                 <div className="relative p-6 flex-auto">
-                    <form>
+                    <form onSubmit={handleSubmit} >
                         <div className='grid gap-6 mb-6 md:grid-cols-2'>
                             <label for="asset" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">First name</label>
-                            <select id="asset" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <select value={name} onChange={(e)=> setName(e.target.value)} id="asset" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <option selected>Select Asset</option>
                                 <option value="Hp15">Hp15</option>
                                 <option value="Lenovo">Lenovo</option>
@@ -44,17 +86,17 @@ const RequestAsset = () => {
                             </select>
 
                             <label for="quantity" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">quantity</label>
-                            <input type="number" id="quantity" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter User's Name" required/>
+                            <input value={quantity} onChange={(e)=> setQuantity(e.target.value)} type="number" id="quantity" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter User's Name" required/>
 
                             <label for="urgency" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">First name</label>
-                            <select id="urgency" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <select value={urgency} onChange={(e)=> setUrgency(e.target.value)} id="urgency" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <option selected>Select Urgency</option>
                                 <option value="Not Urgent">Not Urgent</option>
                                 <option value="Urgent">Urgent</option>
                             </select>
 
                             <label for="reason" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Reason</label>
-                            <textarea id="reason" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Your reason..." required></textarea>
+                            <textarea value={reason} onChange={(e)=> setReason(e.target.value)} id="reason" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Your reason..." required></textarea>
                             
                         </div>
                         <button

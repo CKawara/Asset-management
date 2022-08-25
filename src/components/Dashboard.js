@@ -4,6 +4,9 @@ import NavBar from './NavBar'
 import UsersTable from './UsersTable'
 
 const Dashboard = () => {
+
+
+
     return (
         <div>
             <NavBar/>

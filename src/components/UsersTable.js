@@ -1,16 +1,49 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 const UsersTable = () => {
+
+  const [users,setUsers] = useState("")
+
+    useEffect(() => {
+      
+      fetch('http://127.0.0.1:3000/all_users')
+      .then(res => res.json())
+      .then(data => setUsers(data))
+    
+      
+    }, [])
+
+    const usersList = Array.from(users)
+
+  const displayAllUsers = usersList.map((user)=> {
+
+    return(
+      <tr key={user.id}  className="border-b transition duration-300 ease-in-out hover:bg-gray-100">
+        {/* Name Section */}
+        <td key={user.name} className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{user.name}</td>
+        {/* Email Section */}
+        <td key={user.email} className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+          {user.email}
+        </td>
+        
+        {/* Role Section */}
+        <td key={user.role} className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+          {user.role}
+        </td>
+      
+    </tr>
+    )
+  })
   return (
-    <div class="flex flex-col bg-white m-7 rounded-2xl drop-shadow-md p-3">
-      <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-        <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
-          <div class="overflow-x-auto">
-          <div class="flex justify-start">
-        <div class="mb-3 xl:w-96">
+    <div className="flex flex-col bg-white m-7 rounded-2xl drop-shadow-md p-3">
+      <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div className="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+          <div className="overflow-x-auto">
+          <div className="flex justify-start">
+        <div className="mb-3 xl:w-96">
           <input
             type="search"
-            class="
+            className="
               form-control
               block
               w-full
@@ -32,103 +65,25 @@ const UsersTable = () => {
           />
         </div>
     </div>
-            <table class="min-w-full">
-              <thead class="border-b bg-gray-50">
+            <table className="min-w-full">
+              <thead className="border-b bg-gray-50">
                 <tr>
-                  <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                  <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                     Name
                   </th>
-                  <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                  <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                     Email
                   </th>
-                  <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                    Password
-                  </th>
-                  <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                  
+                  <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                     Role
                   </th>
                 </tr>
               </thead>
               <tbody>
-                <tr class="border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Ross</td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    ross@gmail.com
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    ross@gmail.com
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    user
-                  </td>
-                  
-                </tr>
-                <tr class="border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Ross</td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    ross@gmail.com
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    ross@gmail.com
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    user
-                  </td>
-                  
-                </tr>
-                <tr class="border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Ross</td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    ross@gmail.com
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    ross@gmail.com
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    user
-                  </td>
-                  
-                </tr>
-                <tr class="border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Ross</td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    ross@gmail.com
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    ross@gmail.com
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    user
-                  </td>
-                  
-                </tr>
-                <tr class="border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Ross</td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    ross@gmail.com
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    ross@gmail.com
-                  </td>
-
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    user
-                  </td>
-                  
-                </tr>
-                <tr class="border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Ross</td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    ross@gmail.com
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    ross@gmail.com
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    Ross
-                  </td>
-                  
-                </tr>
+                {/* Display all Users Section */}
+                {displayAllUsers}
+                
               </tbody>
             </table>
           </div>
