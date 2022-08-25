@@ -4,6 +4,8 @@ import AssetRequest from './AssetRequest'
 import NavBar from './NavBar';
 
 const AdminAssets = () => {
+  
+
     return (
       <div className="min-h-screen">
           <NavBar/>
