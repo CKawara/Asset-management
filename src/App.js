@@ -2,7 +2,6 @@ import React from "react";
 import './App.css';
 import { BrowserRouter, Route, Routes} from "react-router-dom";
 import Home from './components/Home';
-import Dashboard from './components/Dashboard';
 import LandingPage from './components/LandingPage';
 import Login from './components/Login'
 import ManagerAssets from './components/ManagerAssets'
@@ -11,6 +10,7 @@ import ManagerAssets from './components/ManagerAssets'
 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import AdminAssets from "./components/AdminAssets";
+import UserDashboard from "./components/User-Dashboard/UserDashboard";
 
 function App() {
   // const { user } = useContext(UserContext)
@@ -22,7 +22,7 @@ function App() {
         <Route path={'/admin'}  element={<AdminAssets/>} exact/>
         <Route path={'/manager'}  element={<ManagerAssets/>} exact/>
         <Route path={'/employee'}  element={<Home/>} exact/>
-        <Route path={'/dashboard'} element={<Dashboard/>} />
+        <Route path={'/dashboard'} element={<UserDashboard/>} exact />
         <Route path={'/login'} element={<Login/>}/>
 
       </Routes>
