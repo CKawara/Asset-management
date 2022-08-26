@@ -77,7 +77,7 @@ const RequestAsset = () => {
                 <div className="relative p-6 flex-auto">
                     <form onSubmit={handleSubmit} >
                         <div className='grid gap-6 mb-6 md:grid-cols-2'>
-                            <label for="asset" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">First name</label>
+                            <label for="asset" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Asset</label>
                             <select value={name} onChange={(e)=> setName(e.target.value)} id="asset" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <option selected>Select Asset</option>
                                 <option value="Hp15">Hp15</option>
@@ -86,9 +86,9 @@ const RequestAsset = () => {
                             </select>
 
                             <label for="quantity" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">quantity</label>
-                            <input value={quantity} onChange={(e)=> setQuantity(e.target.value)} type="number" id="quantity" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter User's Name" required/>
+                            <input value={quantity} onChange={(e)=> setQuantity(e.target.value)} type="number" id="quantity" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Quantity" required/>
 
-                            <label for="urgency" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">First name</label>
+                            <label for="urgency" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Urgency</label>
                             <select value={urgency} onChange={(e)=> setUrgency(e.target.value)} id="urgency" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <option selected>Select Urgency</option>
                                 <option value="Not Urgent">Not Urgent</option>

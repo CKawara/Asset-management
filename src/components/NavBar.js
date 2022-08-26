@@ -31,7 +31,7 @@ const NavBar = () => {
                 <NavLink className="px-4 pt-4 flex items-center text-xs uppercase font-bold leading-snug text-dark hover:opacity-75" to='/employee'>Assets</NavLink>
                 </li>
                 <li className="nav-item">
-                <NavLink className="px-4 pt-4 flex items-center text-xs uppercase font-bold leading-snug text-dark hover:opacity-75" to='/dashboard'>Dashboard</NavLink>
+                <NavLink className="px-4 pt-4 flex items-center text-xs uppercase font-bold leading-snug text-dark hover:opacity-75" to='/userdashboard'>Dashboard</NavLink>
                 </li>
                 <li className="nav-item">
                 <p className="px-4 pt-3 flex items-center text-xs  font-bold leading-snug text-dark hover:opacity-75">Name <br/> Role</p>

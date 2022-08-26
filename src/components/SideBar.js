@@ -1,21 +1,35 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom';
+
 
 const SideBar = () => {
   return (
-    <div class="w-60 h-full shadow-md bg-white px-1 absolute">
-  <ul class="relative">
-    <li class="relative">
-      <a class="flex items-center text-sm py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out" href="#!" data-mdb-ripple="true" data-mdb-ripple-color="dark">Sidenav link 1</a>
-    </li>
-    <li class="relative">
-      <a class="flex items-center text-sm py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out" href="#!" data-mdb-ripple="true" data-mdb-ripple-color="dark">Sidenav link 2</a>
-    </li>
-    <li class="relative">
-      <a class="flex items-center text-sm py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out" href="#!" data-mdb-ripple="true" data-mdb-ripple-color="dark">Sidenav link 2</a>
-    </li>
-  </ul>
-</div>
-  )
+    <>
+      {/* <nav className="relative flex flex-wrap items-center justify-between shadow-xl">
+        <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
+          <div className="w-full relative flex lg:w-auto lg:static flex  ">
+           <NavLink className="px-3 py-3 flex items-center text-center text-lg uppercase font-bold leading-snug text-dark  hover:opacity-75" to='/home'>E-nventory</NavLink>
+          </div>
+        </div>
+      </nav>
+      <div className='grid grid-cols-12'> */}
+        <div className='col-span-3 bg-emerald-500 grow  min-h-screen pl-2 md:col-span-2'>
+          <p className="px-3 py-2 flex items-center text-center font-bold text-white text-sm md:text-lg lg:text-2xl hover:opacity-75">Name (role)</p>
+          <NavLink className="px-3 py-3 flex items-center text-center font-bold text-white text-sm md:text-lg lg:text-2xl hover:opacity-75" to='/admin'>Assets</NavLink>
+          <NavLink className="px-3 py-3 flex items-center text-center font-bold text-white text-sm md:text-lg lg:text-2xl hover:opacity-75" to='/dashboard'>Dashboard</NavLink>
+          <NavLink className="px-3 py-3 flex items-center text-center font-bold text-white text-sm md:text-lg lg:text-2xl hover:opacity-75" to='/allocated'>My Assets</NavLink>
+        </div>
+      {/* //   <div className='col-span-9  h-screen pl-2 md:col-span-10'>
+      //     <div className='relative flex flex-wrap items-center justify-between px-5'>
+      //         <p className='my-2 text-2xl'>Users</p>
+      //         <AddUser/>
+      //     </div>
+      //     <hr/>
+      //     <UsersTable/>          
+      //   </div>
+      // </div> */}
+    </>
+  );
 }
 
 export default SideBar

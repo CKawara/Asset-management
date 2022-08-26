@@ -11,6 +11,8 @@ import ManagerAssets from './components/ManagerAssets'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import AdminAssets from "./components/AdminAssets";
 import UserDashboard from "./components/User-Dashboard/UserDashboard";
+import SideBar from "./components/SideBar";
+import Dashboard from "./components/AdminDashboard";
 
 function App() {
   // const { user } = useContext(UserContext)
@@ -20,11 +22,12 @@ function App() {
       <Routes>
         <Route path={'/'} element={<LandingPage/>}/>
         <Route path={'/admin'}  element={<AdminAssets/>} exact/>
+        <Route path={'/dashboard'} element={<Dashboard/>} exact />
         <Route path={'/manager'}  element={<ManagerAssets/>} exact/>
         <Route path={'/employee'}  element={<Home/>} exact/>
-        <Route path={'/dashboard'} element={<UserDashboard/>} exact />
+        <Route path={'/userdashboard'} element={<UserDashboard/>} exact />
+        <Route path={'/side'} element={<SideBar/>} exact />
         <Route path={'/login'} element={<Login/>}/>
-
       </Routes>
       </div>
     </BrowserRouter>

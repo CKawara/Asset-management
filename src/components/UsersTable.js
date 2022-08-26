@@ -13,7 +13,7 @@ const UsersTable = () => {
       
     }, [])
 
-    const usersList = Array.from(users)
+  const usersList = Array.from(users)
 
   const displayAllUsers = usersList.map((user)=> {
 
