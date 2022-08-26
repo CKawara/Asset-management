@@ -1,5 +1,5 @@
-import AssetRequest from './AssetRequest'
 import NavBar from './NavBar';
+import RequestAsset from './RequestAsset';
 import UserAssetsTable from './UserAssetsTable';
 
 const Home = () => {
@@ -8,7 +8,7 @@ const Home = () => {
           <NavBar/>
         <div className="relative flex flex-wrap items-center justify-between px-5">
           <p className="text-2xl">Assets Available</p>
-          <AssetRequest />
+          <RequestAsset />
           </div>
         <hr/>
         <UserAssetsTable />

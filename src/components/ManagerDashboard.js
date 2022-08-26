@@ -1,11 +1,9 @@
-import React from "react";
-import AssetsTable from "./AssetsTableAdm";
-import '../index.css'
-import AddAssets from "./AddAssets";
-import SideBar from "./SideBar";
+import React from 'react'
+import RequestsTable from './RequestsTable'
+import SideBar from './SideBar'
 
-const ManagerAssets = () => {
-	return (
+const ManagerDashboard = () => {
+    return (
 		<div className="min-h-screen">
 			<nav className="relative flex flex-wrap items-center justify-between shadow-xl">
 				<div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
@@ -18,15 +16,14 @@ const ManagerAssets = () => {
 				<SideBar/>
 				<div className='col-span-9  min-h-screen pl-2 md:col-span-10'>
 					<div className="relative flex flex-wrap items-center justify-between px-5">
-						<p className="text-2xl">Assets Available</p>
-						<AddAssets />
+						<p className="text-2xl">Pending Requests</p>
 					</div>
 					<hr/>
-					<AssetsTable />
+					<RequestsTable />
 				</div>
 			</div>
 		</div>
 	);
-};
+}
 
-export default ManagerAssets;
+export default ManagerDashboard
