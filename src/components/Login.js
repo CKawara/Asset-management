@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import '../Styling/Login.css'
 
 import Container from 'react-bootstrap/Container'
@@ -7,6 +7,7 @@ import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import man from '../Assets/man.png'
 import Form from 'react-bootstrap/Form'
+import { UserContext } from '../custom-hooks/user'
 
 
 
@@ -15,6 +16,7 @@ import Form from 'react-bootstrap/Form'
 const Login = () => {
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
+    const {setUser} = useContext(UserContext)
 
     const handleSubmit = (e)=>{
         e.preventDefault()
@@ -32,8 +34,14 @@ const Login = () => {
             body: JSON.stringify(user)
 
         })
-        .then(res=> res.json())
-        .then(data=> console.log(data))
+        .then(res=> {
+            if(res.ok){
+                res.json().then(res => setUser)
+            }
+            else{
+                alert("error login")
+            }
+        })
         
     }
 
