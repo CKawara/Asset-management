@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import '../Styling/Login.css'
 
 import Container from 'react-bootstrap/Container'
@@ -7,7 +7,8 @@ import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import man from '../Assets/man.png'
 import Form from 'react-bootstrap/Form'
-
+import { UserContext } from '../custom-hooks/user'
+import { useNavigate } from 'react-router-dom'
 
 
 
@@ -15,6 +16,8 @@ import Form from 'react-bootstrap/Form'
 const Login = () => {
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
+    const {setUser} = useContext(UserContext)
+    const navigate = useNavigate()
 
     const handleSubmit = (e)=>{
         e.preventDefault()
@@ -24,7 +27,7 @@ const Login = () => {
             password: password
         }
 
-        fetch('http://127.0.0.1:3000/users',{
+        fetch('http://127.0.0.1:3000/login',{
             method: "POST",
             headers: {
                 'Content-Type':'application/json'
@@ -32,8 +35,25 @@ const Login = () => {
             body: JSON.stringify(user)
 
         })
-        .then(res=> res.json())
-        .then(data=> console.log(data))
+        .then(res=> {
+            if(res.ok){
+                res.json().then(res => {
+                    setUser(res)
+                    setPassword("")
+                    setEmail("")
+                    if(res.role === "Admin"){
+                        navigate("/admin");
+                    } else if(res.role === "Manager"){
+                        navigate("/managerdashboard");
+                    } else {
+                        navigate("/employee");
+                    }
+                })
+            }
+            else{
+                alert("error login")
+            }
+        })
         
     }
 

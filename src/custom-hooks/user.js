@@ -3,9 +3,9 @@ import React, {useState} from "react"
 
 const UserContext = React.createContext();
 
-function UserProvider({ childern }){
+function UserProvider({ children }){
   const [user, setUser] = useState(null)
-  return <UserContext.Provider value={ {user, setUser}}>{ childern }</UserContext.Provider>
+  return <UserContext.Provider value={ {user, setUser}}>{ children }</UserContext.Provider>
 }
 
 export { UserContext, UserProvider}

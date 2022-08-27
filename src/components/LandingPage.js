@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import '../Styling/LandingPage.css'
 import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
@@ -8,9 +8,11 @@ import logo from '../Assets/shipping.png'
 
 import '../Styling/LandingPage.css' 
 import { useNavigate } from 'react-router-dom'
+import { UserContext } from '../custom-hooks/user'
 
 const LandingPage = () => {
     const navigate = useNavigate()
+    const {user} = useContext(UserContext)
 
   return (
     <>
@@ -28,7 +30,7 @@ const LandingPage = () => {
                         <p className='main-slogan'>Best Inventory <br/> Solution</p>
                         <p className='lower-slogan'>Let us help you manage your assets in a <br/> simple,easy and secure way</p>
                         <div>
-                            <Button onClick={()=> navigate('/login')} id="start-btn" >Get Started</Button>
+                            <Button onClick={()=> navigate('/login')} id="start-btn" >{user ? "Go to Dashboard" : "Get Started" }</Button>
                         </div>
                     </Row>
 
