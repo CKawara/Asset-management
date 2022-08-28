@@ -30,7 +30,6 @@ const Login = () => {
         fetch('http://127.0.0.1:3000/login',{
             method: "POST",
             headers: {
-                Authorization: `Bearer <token>`,
                 'Content-Type':'application/json'
             },
             body: JSON.stringify(user)
