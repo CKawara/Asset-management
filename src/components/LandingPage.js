@@ -1,12 +1,8 @@
 import React, { useContext } from 'react'
 import '../Styling/LandingPage.css'
 import Container from 'react-bootstrap/Container'
-import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
 import logo from '../Assets/shipping.png'
-
-import '../Styling/LandingPage.css' 
 import { useNavigate } from 'react-router-dom'
 import { UserContext } from '../custom-hooks/user'
 
@@ -16,32 +12,28 @@ const LandingPage = () => {
 
   return (
     <>
-        <Container fluid className='landing p-5'>
-            <Row >
-                <Col>
-                    <Row className='mt-3'>
-                        <div className='d-flex'>
+        <Container fluid className='landing p-4'>
+                    <Row className=''>
+                        <div className='logos d-flex'>
                             <img className='logo' src={logo} alt='logo'/>
-                            <h3 className='title mt-3 ms-2'>nventory</h3>
+                            <h3 className='title ms-2'>nventory</h3>
                         </div>
                     </Row>
 
-                    <Row>
-                        <p className='main-slogan'>Best Inventory <br/> Solution</p>
-                        <p className='lower-slogan'>Let us help you manage your assets in a <br/> simple,easy and secure way</p>
+                    <Row className='h-1/2'>
+                        <p className='text-white text-5xl md:text-6xl mt-5'>Best Inventory <br/> Solution</p>
+                        <p className='text-white text-xl md:text-2xl mt-2'>Let us help you manage your assets in a <br/> simple,easy and secure way</p>
                         <div>
-                            <Button onClick={()=> navigate('/login')} id="start-btn" >{user ? "Go to Dashboard" : "Get Started" }</Button>
+                            <button id='start-btn' type="button" className="inline-block px-4 py-3 bg-white text-dark font-medium font-bold uppercase rounded-lg shadow-md hover:shadow-2xl transition duration-150 ease-in-out"
+                            onClick={() => navigate('/login')}
+                            >
+                            Get Started
+                            </button>                        
                         </div>
                     </Row>
 
-                </Col>
 
 
-                
-                <Col>
-                </Col>
-
-            </Row>
 
         </Container>
     

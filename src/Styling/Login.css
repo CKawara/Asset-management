@@ -14,8 +14,9 @@
 #login{
     background-image: url('../Assets/login\ back.png');
     background-size: cover;
-   min-width: 100%;
-   min-height: 100%;
+    background-repeat: no-repeat;
+    min-width: 100%;
+    min-height: 100%;
 } 
 
 
@@ -60,7 +61,7 @@
 
 .input-fields{
     font-family: 'Nunito', sans-serif;
-    box-shadow: 2px 2px 5px gray;
+    box-shadow: 1px 1px 5px gray;
     border-radius: 5px;
 
 
