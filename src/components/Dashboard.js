@@ -1,11 +1,16 @@
-import React from 'react'
+import React from 'react';
+import UserTable from './User-Dashboard/user_requests';
+import UserDashboard from './User-Dashboard/UserDashboard';
 
 const Dashboard = () => {
     return (
         <div>
-            dashboard
+            <UserDashboard />
+          
+            <UserTable/>
         </div>
     )
 }
 
+ 
 export default Dashboard

@@ -1,12 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import NavBar from '../NavBar';
-import UserTable from './user_requests';
+
 
  
 
 function UserDashboard() {
+  let Navigate = useNavigate()
+
     return (
       <>
         <NavBar/>
@@ -14,10 +16,12 @@ function UserDashboard() {
             <Title>
               Asset Requests
             </Title>
-            <Button><Link to='/allocated'>Allocated</Link></Button>
+            <Button onClick={()=> Navigate('/allocated')}>
+            Allocated
+            </Button>
           </div>
         <Divider/>
-        <UserTable/>
+      
       </>
         );
 }

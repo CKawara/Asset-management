@@ -1,11 +1,17 @@
 import React from 'react';
 import NavBar from './NavBar';
+import styled from "styled-components";
 
 const AllocatedTable = () => {
   return (
 
     <>
-<NavBar/>
+ <NavBar/>
+ <Title>
+ Allocated Assets
+</Title>
+
+ <Divider />
    
 <div class="flex flex-col bg-white m-7 rounded-2xl drop-shadow-md p-3">
   <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -65,5 +71,16 @@ const AllocatedTable = () => {
 </>
 )
 }
+
+const Divider = styled.hr`
+  border: none;
+  border-bottom: 2px solid green;
+  margin: 20px 0;
+`;
+
+const Title = styled.h3`
+background: whitesmoke;
+font-size: 20px
+  `;
 
 export default AllocatedTable
