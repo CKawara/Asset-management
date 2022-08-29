@@ -6,10 +6,10 @@ import RequestAsset from './RequestAsset';
 const AdminAssets = () => {
   return (
 		<div className="min-h-screen">
-			<nav className="relative flex flex-wrap items-center justify-between shadow-xl">
-				<div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
-					<div className="w-full relative flex lg:w-auto lg:static flex  ">
-						<p className="px-3 py-3 flex items-center text-center text-lg uppercase font-bold leading-snug text-dark  hover:opacity-75" >E-nventory</p>
+			<nav className="relative flex flex-wrap shadow-md">
+				<div className="container mx-auto flex flex-wrap ">
+					<div className="w-full relative flex lg:w-auto lg:static flex ">
+						<p className= "py-2 flex text-2xl uppercase font-bold leading-snug text-dark " >E-nventory</p>
 					</div>
 				</div>
 			</nav>
