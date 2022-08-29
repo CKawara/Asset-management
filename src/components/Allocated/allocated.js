@@ -1,7 +1,12 @@
-import React from 'react'
+import React from 'react';
+import NavBar from '../NavBar';
 
 const AllocatedTable = () => {
   return (
+
+    <>
+    <NavBar/>
+   
 <div class="flex flex-col bg-white m-7 rounded-2xl drop-shadow-md p-3">
   <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
     <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
@@ -56,7 +61,9 @@ const AllocatedTable = () => {
       </div>
     </div>
   </div>
-</div>  )
+</div> 
+</>
+)
 }
 
 export default AllocatedTable
