@@ -1,11 +1,11 @@
 import React from 'react';
-import NavBar from '../NavBar';
+import NavBar from './NavBar';
 
 const AllocatedTable = () => {
   return (
 
     <>
-    <NavBar/>
+<NavBar/>
    
 <div class="flex flex-col bg-white m-7 rounded-2xl drop-shadow-md p-3">
   <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
