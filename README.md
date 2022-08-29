@@ -14,6 +14,7 @@ This project is divided into two repositories:
 
 ## Description
 An asset inventory Management system that centralizes the inventory information and tracks all the assets in an organization
+Here's the live site https://asset-management-two.vercel.app/
 
 ## Setup Requirements
 * Clone repository link
@@ -28,7 +29,7 @@ An asset inventory Management system that centralizes the inventory information 
 * Bootstrap
 * Tailwind
 
-## Reference
+## References
 * StackOverflow
 * react documentation
 * tailwind documentation
