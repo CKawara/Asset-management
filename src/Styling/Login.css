@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+
+
+/* fonts 
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Nunito', sans-serif;
+
+
+
+*/
+
+#login{
+    background-image: url('../Assets/login\ back.png');
+    background-size: cover;
+   min-width: 100%;
+   min-height: 100%;
+} 
+
+
+
+.left-column{
+    background-color: #72c99c;
+}
+
+.hello-text{
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+
+
+}
+
+.login-title{
+    font-family: 'Montserrat', sans-serif;
+    color: #2cae66;
+
+}
+
+#login-form{
+    background-color: white;
+}
+
+#log-form{
+    margin-top: 30%;
+}
+
+#submit-btn {
+    background-color: #2cae66;
+    border-radius: 4px;
+    font-family: 'Nunito', sans-serif;
+    border: none;
+    padding: 5px 40px 5px 40px;
+
+}
+#submit-btn:focus{
+    box-shadow: none;
+}
+
+
+.input-fields{
+    font-family: 'Nunito', sans-serif;
+    box-shadow: 2px 2px 5px gray;
+    border-radius: 5px;
+
+
+}
+
+.input-fields:focus{
+    box-shadow: none;
+    border: none;
+}
+.input-fields:active{
+    box-shadow: none;
+    border: none;
+
+
+}
