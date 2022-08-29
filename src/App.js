@@ -3,7 +3,7 @@ import './App.css';
 import { BrowserRouter, Route, Routes} from "react-router-dom";
 //import NavBar from './components/NavBar';
 import Home from './components/Home';
-//import Dashboard from './components/Dashboard';
+import AllocatedTable from './components/Allocated/allocated';
 import Login from './components/Login/Login';
 import UserDashboard from './components/User-Dashboard/UserDashboard';
  
@@ -14,7 +14,7 @@ function App() {
     <BrowserRouter>
       <div className='App'>
      <Login/>
-     
+     <AllocatedTable />
       <Routes>
         <Route path={'/home'}  element={<Home/>} exact/>
      </Routes>

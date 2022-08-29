@@ -11,6 +11,7 @@ function UserDashboard() {
             <Title>
               Asset Requests
             </Title>
+            <Button>Allocated</Button>
           </div>
         <Divider/>
         <UserTable/>
@@ -28,6 +29,17 @@ const Divider = styled.hr`
 const Title = styled.h3`
 background: whitesmoke;
 font-size: 20px
+  
+`;
+
+const Button = styled.button`
+background: green;
+font-size: 15px;
+padding: 10px 50px;
+border-radius: 30px;
+margin-right: 10px;
+float: right;
+margin-top: -40px;
   
 `;
 
