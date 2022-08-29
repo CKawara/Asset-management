@@ -12,7 +12,6 @@ function App() {
       <div className='App'>
       
       <UserDashboard />
-      <AllocatedTable/>
       <Routes>
         <Route path={'/home'}  element={<Home/>} exact/>
         <Route path={'/dashboard'} element={<Dashboard/>} />
