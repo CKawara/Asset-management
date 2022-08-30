@@ -1,12 +1,14 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { UserContext } from '../custom-hooks/user';
 
-const RequestAsset = () => {
+const RequestAsset = ({item}) => {
     const [showModal, setShowModal] = useState(false);
 
     const [name,setName] = useState("")
     const [urgency,setUrgency] = useState("")
     const [quantity,setQuantity] = useState("")
     const [reason,setReason] = useState("")
+    const {user} = useContext(UserContext)
 
 
     const handleSubmit = (e)=>{
@@ -16,7 +18,8 @@ const RequestAsset = () => {
             name: name,
             urgency: urgency,
             quantity: quantity,
-            reason: reason
+            reason: reason,
+            user_id: user.id
 
         }
 
