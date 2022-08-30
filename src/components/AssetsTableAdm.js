@@ -1,6 +1,9 @@
 import React from 'react'
 
 const AssetsTableAdm = () => {
+
+ 
+
   return (
     <>
       <div className="flex flex-col bg-white m-7 rounded-2xl drop-shadow-md p-3">
