@@ -41,6 +41,7 @@ const Login = () => {
                     setUser(res)
                     setPassword("")
                     setEmail("")
+                    localStorage.setItem("jwt", res.jwt)
                     if(res.role === "Admin"){
                         navigate("/admin");
                     } else if(res.role === "Manager"){
