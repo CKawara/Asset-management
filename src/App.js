@@ -14,6 +14,7 @@ import UserDashboard from "./components/User-Dashboard/UserDashboard";
 import SideBar from "./components/SideBar";
 import Dashboard from "./components/AdminDashboard";
 import ManagerDashboard from "./components/ManagerDashboard";
+import AllocatedTable from "./components/allocated";
 
 function App() {
   const {setUser} = useContext(UserContext)
@@ -34,23 +35,19 @@ function App() {
     })
   }, [])
   return (
-    <div className="App">
-      <Routes>
-        <Route path={"/"} element={<LandingPage />} />
-        <Route path={"/admin"} element={<AdminAssets />} exact />
-        <Route path={"/dashboard"} element={<Dashboard />} exact />
-        <Route path={"/manager"} element={<ManagerAssets />} exact />
-        <Route
-          path={"/managerdashboard"}
-          element={<ManagerDashboard />}
-          exact
-        />
-        <Route path={"/employee"} element={<Home />} exact />
-        <Route path={"/userdashboard"} element={<UserDashboard />} exact />
-        <Route path={"/side"} element={<SideBar />} exact />
-        <Route path={"/login"} element={<Login />} />
-      </Routes>
-    </div>
+      <div className='App'>
+        <Routes>
+          <Route path={'/'} element={<LandingPage/>}/>
+          <Route path={'/admin'}  element={<AdminAssets/>} exact/>
+          <Route path={'/dashboard'} element={<Dashboard/>} exact />
+          <Route path={'/manager'}  element={<ManagerAssets/>} exact/>
+          <Route path={'/managerdashboard'}  element={<ManagerDashboard/>} exact/>
+          <Route path={'/employee'}  element={<Home/>} exact/>
+          <Route path={'/userdashboard'} element={<UserDashboard/>} exact />
+          <Route path={'/side'} element={<SideBar/>} exact />
+          <Route path={'/login'} element={<Login/>}/>
+        </Routes>
+      </div>
   );
 }
 

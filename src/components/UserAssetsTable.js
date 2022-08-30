@@ -61,6 +61,12 @@ const UserAssetsTable = () => {
                     >
                       Description
                     </th>
+                    <th
+                      scope="col"
+                      className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                    >
+                      Action
+                    </th>
                     
                   </tr>
                 </thead>
@@ -78,6 +84,9 @@ const UserAssetsTable = () => {
                     <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                       15 inches, corei5, 8GB RAM ...
                     </td>
+                    <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                      <button className='bg-emerald-500 text-white px-2 py-2 rounded shadow-md hover:bg-green-500  transition duration-150 ease-in-out'>Request Asset</button> 
+                    </td> 
                   </tr>
                   
                 </tbody>

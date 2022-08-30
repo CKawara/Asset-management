@@ -71,18 +71,18 @@ const Login = () => {
 
                 <Col sm={12} md={6} lg={5} className='mt-5' id='login-form'>
                 <Form onSubmit={handleSubmit} id='log-form'>
-                    <h3 className='login-title text-center mb-3'>Login</h3>
+                    <h3 className='login-title text-center mb-4'>Login</h3>
 
-                    <Form.Group className='mb-4'>
+                    <Form.Group className='mb-5 input-group-lg'>
                         <Form.Control value={email} onChange={(e)=> setEmail(e.target.value)} className='input-fields' type='email' placeholder='Enter Email'/>
                     </Form.Group>
 
-                    <Form.Group className=' mb-3'>
+                    <Form.Group className=' mb-3 input-group-lg'>
                         <Form.Control value={password} onChange={(e)=> setPassword(e.target.value)} className='input-fields' type='password' placeholder='Enter Password'/>
                     </Form.Group>
 
-                    <div className='d-flex justify-content-center'>
-                        <Button type='submit' id='submit-btn' className='mt-4'>Submit</Button>
+                    <div className='d-flex justify-content-center '>
+                        <Button type='submit' id='submit-btn' className='mt-4 py-2 px-5'>Submit</Button>
                     </div>
                 </Form>
 

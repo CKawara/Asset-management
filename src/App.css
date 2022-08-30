@@ -1,9 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Grand+Hotel&family=Poppins&family=Source+Serif+4:opsz@8..60&display=swap');
 .App{
     background-color: #F8F8FA;
+    font-family: 'Poppins', sans-serif !important;
 }
 
 .landing{
     background-image: url('./Assets/backfinal.png');
+    background-size: cover;
+    background-repeat: no-repeat;
     height: 100vh;
 
 }
