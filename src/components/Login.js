@@ -18,6 +18,8 @@ const Login = () => {
     const [password,setPassword] = useState('')
     const {setUser} = useContext(UserContext)
     const navigate = useNavigate()
+     
+    console.log(setUser)
 
     const handleSubmit = (e)=>{
         e.preventDefault()

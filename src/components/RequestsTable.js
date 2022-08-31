@@ -1,6 +1,26 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 
+import RequestsChannel from './requests_channel.js'
+
+
+// Manager viewing all the requests
 const RequestsTable = () => {
+    const [recData,setRecData] = useState([])
+
+    useEffect(() => {
+        RequestsChannel.received = (data) => setRecData(data)
+    
+      
+    }, [])
+
+    console.log("am the manager receiving",recData)
+
+
+
+
+
+    
+
   return (
     <div className="flex flex-col bg-white m-7 rounded-2xl drop-shadow-md p-3">
         <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -8,6 +28,7 @@ const RequestsTable = () => {
             <div className="overflow-x-auto">
             <div className="flex justify-start">
             <div className="mb-3 xl:w-96">
+                <p> hello</p>
             <input
                 type="search"
                 className="
@@ -32,6 +53,17 @@ const RequestsTable = () => {
             />
             </div>
         </div>
+        {/* DISPLAY requets */}
+
+
+        {/* DISPLAY requets */}
+
+
+
+
+
+
+
                 <table className="min-w-full">
                 <thead className="border-b bg-gray-50">
                     <tr>

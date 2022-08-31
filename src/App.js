@@ -15,8 +15,10 @@ import Dashboard from "./components/AdminDashboard";
 import ManagerDashboard from "./components/ManagerDashboard";
 import AllocatedTable from "./components/allocated";
 
+
+
 function App() {
-  const {setUser} = useContext(UserContext)
+  const { setUser} = useContext(UserContext)
   const token = localStorage.getItem("jwt")
   useEffect(() => {
     fetch("http://localhost:3000/me",{

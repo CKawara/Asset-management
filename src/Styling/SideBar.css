@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+
+
+/* fonts 
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Nunito', sans-serif;
+
+
+
+*/
+
+#usersname{
+    font-family: 'Montserrat', sans-serif;
+
+
+}
+
+.side-panel-titles{
+    font-family: 'Nunito', sans-serif;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.sideicons{
+    width: 1.8rem;
+    height: auto;
+}

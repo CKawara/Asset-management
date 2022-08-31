@@ -1,14 +1,14 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import '../Styling/LandingPage.css'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import logo from '../Assets/shipping.png'
 import { useNavigate } from 'react-router-dom'
-import { UserContext } from '../custom-hooks/user'
+// import { UserContext } from '../custom-hooks/user'
 
 const LandingPage = () => {
     const navigate = useNavigate()
-    const {user} = useContext(UserContext)
+    // const {user} = useContext(UserContext)
 
   return (
     <>
