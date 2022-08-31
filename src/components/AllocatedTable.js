@@ -5,21 +5,21 @@ const AllocatedTable = () => {
   return (
 
     <>
-      <NavBar/>
+      {/* <NavBar/>
       <div className="relative flex flex-wrap items-center justify-between px-5">
         <p className="text-3xl">My Assets</p>
         <hr/>
-      </div>
+      </div> */}
 
-      <div class="flex flex-col bg-white m-7 rounded-2xl drop-shadow-md p-3">
-        <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-          <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
-            <div class="overflow-x-auto">
-              <div class="flex justify-start">
-                <div class="mb-3 xl:w-96">
+      <div className="flex flex-col bg-white m-7 rounded-2xl drop-shadow-md p-3">
+        <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
+          <div className="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+            <div className="overflow-x-auto">
+              <div className="flex justify-start">
+                <div className="mb-3 xl:w-96">
                   <input
                     type="search"
-                    class="
+                    className="
                       form-control
                       block
                       w-full
@@ -41,22 +41,22 @@ const AllocatedTable = () => {
                   />
                 </div>
               </div>
-              <table class="min-w-full">
-                <thead class="border-b bg-gray-50">
+              <table className="min-w-full">
+                <thead className="border-b bg-gray-50">
                   <tr>
-                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                    <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                       Asset id
                     </th>
-                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                    <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                       Name
                     </th>
-                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                    <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                       Category
                     </th>
-                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                    <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                       Description
                     </th>
-                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                    <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                       Quantity
                     </th>
                   </tr>
