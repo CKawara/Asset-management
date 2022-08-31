@@ -11,10 +11,9 @@ import { UserContext } from './custom-hooks/user';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import AdminAssets from "./components/AdminAssets";
 import UserDashboard from "./components/User-Dashboard/UserDashboard";
-import SideBar from "./components/SideBar";
 import Dashboard from "./components/AdminDashboard";
 import ManagerDashboard from "./components/ManagerDashboard";
-import AllocatedTable from "./components/allocated";
+import Allocated from "./components/Allocated";
 
 function App() {
   const {setUser} = useContext(UserContext)
@@ -44,7 +43,7 @@ function App() {
           <Route path={'/managerdashboard'}  element={<ManagerDashboard/>} exact/>
           <Route path={'/employee'}  element={<Home/>} exact/>
           <Route path={'/userdashboard'} element={<UserDashboard/>} exact />
-          <Route path={'/side'} element={<SideBar/>} exact />
+          <Route path={'/allocated'} element={<Allocated/>} exact />
           <Route path={'/login'} element={<Login/>}/>
         </Routes>
       </div>

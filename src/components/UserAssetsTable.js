@@ -1,6 +1,11 @@
 import React from 'react'
+import RequestAsset from './RequestAsset';
 
 const UserAssetsTable = () => {
+
+  // const getAsset = (e)=>{
+  //   console.log(e.target.parentNode.parentElement.childNodes[0].textContent);
+  // }
 
   return (
     <>
@@ -85,7 +90,7 @@ const UserAssetsTable = () => {
                       15 inches, corei5, 8GB RAM ...
                     </td>
                     <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                      <button className='bg-emerald-500 text-white px-2 py-2 rounded shadow-md hover:bg-green-500  transition duration-150 ease-in-out'>Request Asset</button> 
+                      <RequestAsset/>
                     </td> 
                   </tr>
                   
