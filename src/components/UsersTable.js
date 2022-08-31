@@ -3,14 +3,20 @@ import React, { useState, useEffect } from 'react'
 const UsersTable = () => {
 
   const [users,setUsers] = useState("")
+  const token = localStorage.getItem("jwt")
+
 
     useEffect(() => {
       
-      fetch('http://127.0.0.1:3000/all_users')
+      fetch('http://127.0.0.1:3000/users',{
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
       .then(res => res.json())
       .then(data => setUsers(data))
-    
-      
+      console.log(users);
     }, [])
 
   const usersList = Array.from(users)

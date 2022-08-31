@@ -1,7 +1,6 @@
 import React from 'react'
-import AssetsTableAdm from './AssetsTableAdm'
 import SideBar from './SideBar';
-import RequestAsset from './RequestAsset';
+import UserAssetsTable from './UserAssetsTable';
 
 const AdminAssets = () => {
   return (
@@ -18,10 +17,9 @@ const AdminAssets = () => {
 				<div className='col-span-9  min-h-screen pl-2 md:col-span-10'>
 					<div className="relative flex flex-wrap items-center justify-between py-3 px-5">
 						<p className="text-2xl">Assets Available</p>
-						<RequestAsset />
 					</div>
 					<hr/>
-					<AssetsTableAdm />
+					<UserAssetsTable />
 				</div>
 			</div>
 		</div>
