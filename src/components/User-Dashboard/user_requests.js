@@ -59,8 +59,8 @@ const UserTable = () => {
             </tr>
           </thead>
           <tbody>
-            (
-              if (user) {
+          {
+               (user) ? 
                 user.requests.map((asset)=>{
                   return(
                     <tr class="border-b transition duration-300 ease-in-out hover:bg-gray-100">
@@ -83,8 +83,9 @@ const UserTable = () => {
                   </tr>
                   )
                 })
-              }
-            )
+              :
+            null
+            }
             
           </tbody>
         </table>
