@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const RequestsTable = () => {
+
   return (
     <div className="flex flex-col bg-white m-7 rounded-2xl drop-shadow-md p-3">
         <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">

@@ -81,26 +81,17 @@ const UserAssetsTable = () => {
 
 
   useEffect(() =>{
-    fetch("http://127.0.0.1:3000/assets",{
+    fetch("http://127.0.0.1:3000/available_assets",{
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`
       }
     })
     .then(res => res.json())
-    .then(data => setAssets(data))
+    .then(data => console.log(data))
     // .then(data => setAssets(data))
   },[])
 
-// :name, :category, :status, :urgency, :asset_id, :user_id
-
-//   t.string "name"
-// t.string "category"
-// t.string "status"
-// t.string "urgency"
-// t.integer "user_id"
-// t.integer "asset_id"
-// t.integer "quantity"
 
   
   const buttonOnClick = (e)=>{
