@@ -1,8 +1,68 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import consumer from './consumer'
+
+
+
 
 const AssetsTableAdm = () => {
+  // Listening for new assets added
+  const [assets,setAssets] = useState([])
+  useEffect(()=>{
+    fetch("http://127.0.0.1:3000/admin_assets_view")
+    .then(res => res.json())
+    .then(data => setAssets(data))
+  },[])
 
+  // console.log(assets[0][0]);
+
+
+  const [newData,setNewData] = useState([])
+  
+    consumer.subscriptions.create("AssetsChannel",{
+      connected(){
+        console.log("Connected to the stream")
+      },
+      disconnected(){},
+      received(data){
+        // setAssets(data)
+  
+        setNewData(data)
+        // console.log(data)
+        
+      }
+    })
+
+  const nDataToArray = [newData,...assets]
+
+  const newAssets = nDataToArray.map((asset)=>{
+    return(
+
+      <tr key={asset.id} className="border-b transition duration-300 ease-in-out hover:bg-gray-100">
+        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+          {asset.id}
+        </td>
+        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+          {asset.name}
+        </td>
+        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+          {asset.category}
+        </td>
+        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+        {asset.description}
+        </td>
+        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+          {asset.user_id}
+        </td>
+        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+          {asset.user_id? "Allocated" : "Not Allocated" }
+        </td>
+      </tr>
+
+    )
+  })
  
+
+
 
   return (
     <>
@@ -72,7 +132,7 @@ const AssetsTableAdm = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr className="border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                  {/* <tr className="border-b transition duration-300 ease-in-out hover:bg-gray-100">
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                       1
                     </td>
@@ -91,7 +151,10 @@ const AssetsTableAdm = () => {
                     <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                       Allocated
                     </td>
-                  </tr>
+                  </tr> */}
+
+                  {/* {mappedAssets} */}
+                  {newAssets}
                 </tbody>
               </table>
             </div>

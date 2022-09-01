@@ -3,8 +3,13 @@ import AssetsTable from "./AssetsTableAdm";
 import '../index.css'
 import AddAssets from "./AddAssets";
 import SideBar from "./SideBar";
+import consumer from './consumer'
+import { useState } from "react";
 
 const ManagerAssets = () => {
+
+	
+
 	return (
 		<div className="min-h-screen">
 			<nav className="relative flex flex-wrap shadow-md">

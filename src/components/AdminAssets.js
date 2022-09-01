@@ -2,8 +2,45 @@ import React from 'react'
 import AssetsTableAdm from './AssetsTableAdm'
 import SideBar from './SideBar';
 import RequestAsset from './RequestAsset';
+import { useState } from 'react';
+import consumer from './consumer';
+
+
+
+
+
 
 const AdminAssets = () => {
+
+	const [newAssets,setNewAssets] = useState([])
+	// Testing channel and websocket
+    consumer.subscriptions.create({ channel: "AssetsChannel"},{
+		received(data){
+			setNewAssets(data)
+
+			// console.log(data)
+
+		}
+	})
+
+	// const chatChannel = consumer.subscriptions.create({ channel: "ChatChannel", room: "Best Room" }, {
+	// 	received(data) {
+	// 	  // data => { sent_by: "Paul", body: "This is a cool chat app." }
+	// 	}
+	//   }
+	  
+	//   chatChannel.send({ sent_by: "Paul", body: "This is a cool chat app." })
+    
+      
+
+
+
+
+
+
+
+
+
   return (
 		<div className="min-h-screen">
 			<nav className="relative flex flex-wrap shadow-md">
@@ -22,6 +59,14 @@ const AdminAssets = () => {
 					</div>
 					<hr/>
 					<AssetsTableAdm />
+
+					<p>Display assets cable Test  here</p>
+					<p>This is the new Asset</p>
+					<ul>
+						<li>{newAssets.name}</li>
+						<li>{newAssets.category}</li>
+						<li>{newAssets.description}</li>
+					</ul>
 				</div>
 			</div>
 		</div>
