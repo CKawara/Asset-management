@@ -19,28 +19,28 @@ const RequestsTable = () => {
         .then(data => setRequests(data))
       }, [])
 
-      const handleApprove = ()=>{
-        fetch('http://127.0.0.1:3000/requests',{
-            method: "PATCH",
-            headers: {
-              Authorization: `Bearer ${token}`
-            },
-            body: JSON.stringify({})
-
-          })
-          .then(res => res.json())
-          .then(data => setRequests(data))
-          alert('approved')
-      }
-      const handleRejected = ()=>{
-        alert('rejected')
-    }
     const handleSearch = ()=>{
         return requests.filter((request)=>{  
             if (!search) return requests
             else
            return request.name.toLowerCase().includes(search)
         })
+    }
+    const handleApprove = ()=>{
+        // fetch('http://127.0.0.1:3000/requests',{
+        //     method: "PATCH",
+        //     headers: {
+        //       Authorization: `Bearer ${token}`
+        //     },
+        //     body: JSON.stringify({...requests, status: "Approved"})
+
+        //   })
+        //   .then(res => res.json())
+        //   .then(data => console.log(data))
+          alert('approved')
+      }
+      const handleRejected = ()=>{
+        alert('rejected')
     }
 
 
