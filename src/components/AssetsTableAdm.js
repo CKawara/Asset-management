@@ -120,7 +120,7 @@ console.log(handleSearch().map((asset)=> asset.user))
                         {(asset.user)? asset.user.name : null}
                         </td>
                         <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                          {(asset.user)? "Allocated" : "Not Allocated"}
+                          {(asset.status)? "Allocated" : "Not Allocated"}
                         </td>
                       </tr>
                       )

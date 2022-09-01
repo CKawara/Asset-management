@@ -5,6 +5,7 @@ const UsersTable = () => {
   const [users,setUsers] = useState([])
   const token = localStorage.getItem("jwt")
   const[search, setSearch] = useState()
+  console.log(users)
 
   useEffect(() => {
       
