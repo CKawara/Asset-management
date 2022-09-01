@@ -48,3 +48,7 @@ hr{
     display: table;
     clear: both;
 }
+
+a:link{
+    text-decoration: none;
+}

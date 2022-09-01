@@ -4,6 +4,7 @@ import { UserContext } from '../custom-hooks/user';
 const AllocatedTable = () => {
   const {user} = useContext(UserContext)
   const[search, setSearch] = useState()
+  console.log(user)
 
   const handleSearch = ()=>{
     return user.assets.filter((asset)=>{  

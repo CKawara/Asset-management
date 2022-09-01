@@ -1,12 +1,29 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { UserContext } from '../../custom-hooks/user'
 
 const UserTable = () => {
   const {user} = useContext(UserContext)
   const[search, setSearch] = useState()
+  const [requests, setRequests] = useState([])
+  const token = localStorage.getItem('jwt')
+
+  useEffect(() => {
+
+    fetch("http://localhost:3000/requests", {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      }
+    }).then((r) => {
+      if (r.ok) {
+        r.json().then((r) => setRequests(r));
+      }
+    });
+
+  }, [])
 
   const handleSearch = ()=>{
-    return user.requests.filter((request)=>{  
+    return requests.filter((request)=>{  
         if (!search) return user.requests
         else
        return request.name.toLowerCase().includes(search)

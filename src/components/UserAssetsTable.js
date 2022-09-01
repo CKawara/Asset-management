@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useEffect, useRef } from 'react';
 // import consumer from './consumer.js'
 // import RequestAsset from './RequestAsset.js';
@@ -8,7 +8,7 @@ import { UserContext } from '../custom-hooks/user'
 
 
 const UserAssetsTable = () => {
-
+  const {user} = useContext(UserContext)
   const [assets,setAssets] = useState([])
   const [showModal, setShowModal] = useState(false);
 
@@ -19,14 +19,12 @@ const UserAssetsTable = () => {
   const [quantity,setQuantity] = useState("")
   const [reason,setReason] = useState("")
   const [assetId, setAssetId] = useState("")
-  const [currentUserId] = useState(UserContext)
   const token = localStorage.getItem("jwt")
   const[search, setSearch] = useState()
 
 
 
 
-   console.log(currentUserId, "is currently logged in")
 
   // Broadcast form socket
    useEffect(() => {
@@ -44,26 +42,34 @@ const UserAssetsTable = () => {
         e.preventDefault()
 
         const request = {
-            name: name,
-            category:category,
-            urgency: urgency,
-            quantity: quantity,
-            reason: reason,
-            asset_id: assetId,
-            // user_id: user_id
+          name: name,
+          category:category,
+          urgency: urgency,
+          quantity: parseInt(quantity),
+          // reason: reason,
+          asset_id: parseInt(assetId),
+          user_id: parseInt(user.id),
+          status: "Pending"
+          // user_id: user_id
 
-        }
+          // name: "Hp",
+          // category: "Laptop",
+          // urgency: "high",
+          // user_id: 4,
+          // asset_id: 5,
+          // quantity: 1,
+          // status: "pending",
+        };
 
-        // console.log(request);
+        console.log(request);
 
 
         fetch('http://127.0.0.1:3000/requests',{
             method: 'POST',
-            mode:'cors',
             headers: {
-                'Content-Type': 'application/json',
-                Authorization: `Bearer ${token}`
-
+              "Accept": "application/json",
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`
             },
             body: JSON.stringify(request)
         })
@@ -84,7 +90,7 @@ const UserAssetsTable = () => {
 
 
   useEffect(() =>{
-    fetch("http://127.0.0.1:3000/available_assets",{
+    fetch("http://127.0.0.1:3000/assets",{
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`
@@ -165,7 +171,7 @@ const UserAssetsTable = () => {
                     <form >
                         <div className='grid gap-6 mb-6 md:grid-cols-2'>
                             <label for="asset" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Asset ID</label>
-                            <input   value={assetId} id="id" name='id' className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" disabled />
+                            <input  number value={assetId} id="id" name='id' className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" disabled />
                                 
                             
 
