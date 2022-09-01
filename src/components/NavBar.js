@@ -9,6 +9,7 @@ const NavBar = () => {
     const navigate = useNavigate()
 
     // console.log(userInfo.name);
+    console.log(user);
 
     function handleLogoutClick() {
       fetch("http://127.0.0.1:3000/logout", 
@@ -19,12 +20,13 @@ const NavBar = () => {
       })
       .then((r) => {
         if (r.ok) {
+          localStorage.removeItem("jwt", r.jwt)
           setUser(null);
           navigate('/')
         }
       });
   }  
-  console.log(user);
+  // console.log(user);
     return (
       <>
         <nav className="relative flex flex-wrap items-center justify-between px-2  mb-3 shadow-xl">

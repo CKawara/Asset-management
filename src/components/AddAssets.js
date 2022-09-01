@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 const AddAssets = () => {
     const [showModal, setShowModal] = useState(false);
-
+    const token = localStorage.getItem("jwt")
     const [name,setName] = useState("")
     const [category,setCategory] = useState("")
     const [description,setDescription] = useState("")
@@ -22,7 +22,9 @@ const AddAssets = () => {
             method: 'POST',
             mode:'cors',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`
+
             },
             body: JSON.stringify(asset)
         })

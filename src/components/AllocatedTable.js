@@ -63,18 +63,18 @@ const AllocatedTable = () => {
                (user) ? 
                 user.assets.map((asset)=>{
                   return(
-                    <tr key={asset.id} class="border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                    <td key={asset.id} class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{asset.id}</td>
-                    <td key={asset.name} class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    <tr key={asset.id} className="border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                    <td key={asset.id} className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{asset.id}</td>
+                    <td key={asset.name} className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                       {asset.name}
                     </td>
-                    <td key={asset.category} class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    <td key={asset.category} className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                       {asset.category}
                     </td>
-                    <td key={asset.description} class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    <td key={asset.description} className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                       {asset.decription}
                     </td>
-                    <td key={asset.quantity} class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    <td key={asset.quantity} className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                       {asset.quantity}
                     </td>
                   </tr>

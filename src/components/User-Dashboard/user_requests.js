@@ -5,15 +5,15 @@ const UserTable = () => {
   const {user} = useContext(UserContext)
 
   return (
-<div class="flex flex-col bg-white m-7 rounded-2xl drop-shadow-md p-3">
-  <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-    <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
-      <div class="overflow-x-auto">
-      <div class="flex justify-start">
-  <div class="mb-3 xl:w-96">
+<div className="flex flex-col bg-white m-7 rounded-2xl drop-shadow-md p-3">
+  <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <div className="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+      <div className="overflow-x-auto">
+      <div className="flex justify-start">
+  <div className="mb-3 xl:w-96">
     <input
       type="search"
-      class="
+      className="
         form-control
         block
         w-full
@@ -35,25 +35,25 @@ const UserTable = () => {
     />
   </div>
 </div>
-        <table class="min-w-full">
-          <thead class="border-b bg-gray-50">
+        <table className="min-w-full">
+          <thead className="border-b bg-gray-50">
             <tr>
-              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+              <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                 Asset id
               </th>
-              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+              <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                 Home
               </th>
-              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+              <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                 Category
               </th>
-              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+              <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                 Quantity
               </th>
-              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+              <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                 Urgency
               </th>
-              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+              <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                 Status
               </th>
             </tr>
@@ -63,21 +63,21 @@ const UserTable = () => {
                (user) ? 
                 user.requests.map((asset)=>{
                   return(
-                    <tr class="border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{asset.id}</td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    <tr className="border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{asset.id}</td>
+                    <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                       {asset.name}
                     </td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                       {asset.category}
                     </td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                       {asset.quantity}
                     </td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                       {asset.urgency}
                     </td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                       {asset.status}
                     </td>
                   </tr>

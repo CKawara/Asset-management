@@ -1,6 +1,23 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const RequestsTable = () => {
+
+    const [requests,setRequests] = useState([])
+    const token = localStorage.getItem("jwt")
+  
+  
+      useEffect(() => {
+        
+        fetch('http://127.0.0.1:3000/requests',{
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        })
+        .then(res => res.json())
+        .then(data => setRequests(data))
+      }, [])
+
 
   return (
     <div className="flex flex-col bg-white m-7 rounded-2xl drop-shadow-md p-3">
@@ -46,9 +63,6 @@ const RequestsTable = () => {
                         Category
                     </th>
                     <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                        Description
-                    </th>
-                    <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                         Owner
                     </th>
                     <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
@@ -63,39 +77,42 @@ const RequestsTable = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr className="border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">1</td>
-                    <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        Hp15
-                    </td>
-                    <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        Laptop
-                    </td>
-                    <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        15 inches, corei5, 8GB RAM ...
-                    </td>
-                    <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        Jane Doe
-                    </td>
-                    <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        2
-                    </td>
-                    <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        Urgent
-                    </td>
-                    <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        <button className='hover:bg-gray-200'>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2CAE66"  className="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.5l6.785 6.785A48.1 48.1 0 0121 4.143" />
-                            </svg>
-                        </button>
-                        <button  className='hover:bg-gray-200'>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="red" className="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m-15 0l15 15" />
-                            </svg>
-                        </button>
-                    </td>
-                    </tr>
+                   {
+                       requests.map((request)=>{
+                           return(
+                            <tr key={request.id} className="border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{request.asset_id}</td>
+                            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                {request.name}
+                            </td>
+                            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                {request.category}
+                            </td>
+                            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                {request.user.name}
+                            </td>
+                            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                {request.quantity}
+                            </td>
+                            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                {request.urgency}
+                            </td>
+                            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                <button className='hover:bg-gray-200'>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#2CAE66"  className="w-6 h-6">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.5l6.785 6.785A48.1 48.1 0 0121 4.143" />
+                                    </svg>
+                                </button>
+                                <button  className='hover:bg-gray-200'>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="red" className="w-6 h-6">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m-15 0l15 15" />
+                                    </svg>
+                                </button>
+                            </td>
+                            </tr>
+                           )
+                       })
+                   }
                 </tbody>
                 </table>
             </div>

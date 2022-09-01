@@ -1,8 +1,13 @@
+import { logDOM } from '@testing-library/react';
+import { useContext } from 'react';
+import { UserContext } from '../custom-hooks/user';
 import NavBar from './NavBar';
 // import RequestAsset from './RequestAsset';
 import UserAssetsTable from './UserAssetsTable';
 
 const Home = () => {
+  const {user} = useContext(UserContext)
+  console.log(user);
     return (
       <div className="min-h-screen">
           <NavBar/>

@@ -1,8 +1,21 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 const AssetsTableAdm = () => {
+  const [assets,setAssets] = useState("")
+  const token = localStorage.getItem("jwt")
 
- 
+
+  useEffect(() =>{
+    fetch("http://127.0.0.1:3000/assets",{
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+    .then(res => res.json())
+    .then(data => console.log(data))
+    // .then(data => setAssets(data))
+  },[])
 
   return (
     <>
