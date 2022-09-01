@@ -105,7 +105,6 @@ const UserAssetsTable = () => {
   }
   const handleSearch = ()=>{
     return assets.filter((asset)=>{  
-      console.log(asset); 
         if (!search) return assets
         else
        return asset.name.toLowerCase().includes(search)

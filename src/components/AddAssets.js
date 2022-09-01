@@ -15,7 +15,8 @@ const AddAssets = () => {
         const asset = {
             name: name,
             category: category,
-            description: description
+            description: description,
+            status: false
         }
 
         fetch('http://127.0.0.1:3000/assets',{

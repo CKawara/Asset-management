@@ -7,7 +7,6 @@ const UserTable = () => {
 
   const handleSearch = ()=>{
     return user.requests.filter((request)=>{  
-      console.log(request); 
         if (!search) return user.requests
         else
        return request.name.toLowerCase().includes(search)

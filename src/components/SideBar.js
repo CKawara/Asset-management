@@ -1,10 +1,28 @@
 import React, { useContext } from 'react'
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { UserContext } from '../custom-hooks/user';
 
 
 const SideBar = () => {
-  const {user} = useContext(UserContext)
+  const {user, setUser} = useContext(UserContext)
+  const token = localStorage.getItem("jwt")
+  const navigate = useNavigate()
+
+  function handleLogoutClick() {
+    fetch("http://127.0.0.1:3000/logout", 
+    { method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+    })
+    .then((r) => {
+      if (r.ok) {
+        localStorage.removeItem("jwt", r.jwt)
+        setUser(null);
+        navigate('/')
+      }
+    });
+} 
     
   // console.log();
   return (
@@ -22,6 +40,7 @@ const SideBar = () => {
           <NavLink className="px-3 py-3 flex items-center text-center font-bold text-white text-sm md:text-lg lg:text-xl hover:opacity-75" to={user  && user.role ==="Admin"? '/admin': '/manager'}>Assets</NavLink>
           <NavLink className="px-3 py-3 flex items-center text-center font-bold text-white text-sm md:text-lg lg:text-xl hover:opacity-75" to={user && user.role ==="Admin"? '/Dashboard': '/managerdashboard'}>Dashboard</NavLink>
           <NavLink className="px-3 py-3 flex items-center text-center font-bold text-white text-sm md:text-lg lg:text-xl hover:opacity-75" to='/allocated'>My Assets</NavLink>
+          <NavLink className="px-3 py-3 flex items-center text-center font-bold text-white text-sm md:text-lg lg:text-xl hover:opacity-75" onClick={handleLogoutClick} to='/'  >Logout</NavLink>
         </div>
       {/* //   <div className='col-span-9  h-screen pl-2 md:col-span-10'>
       //     <div className='relative flex flex-wrap items-center justify-between px-5'>

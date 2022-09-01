@@ -37,7 +37,6 @@ const RequestsTable = () => {
     }
     const handleSearch = ()=>{
         return requests.filter((request)=>{  
-          console.log(request); 
             if (!search) return requests
             else
            return request.name.toLowerCase().includes(search)

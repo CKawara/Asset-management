@@ -7,7 +7,6 @@ const AllocatedTable = () => {
 
   const handleSearch = ()=>{
     return user.assets.filter((asset)=>{  
-      console.log(asset); 
         if (!search) return user.assets
         else
        return asset.name.toLowerCase().includes(search)

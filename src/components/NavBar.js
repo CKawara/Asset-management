@@ -9,7 +9,7 @@ const NavBar = () => {
     const navigate = useNavigate()
 
     // console.log(userInfo.name);
-    console.log(user);
+    // console.log(user);
 
     function handleLogoutClick() {
       fetch("http://127.0.0.1:3000/logout", 
