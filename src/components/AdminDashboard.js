@@ -17,7 +17,7 @@ const Dashboard = () => {
 				<SideBar/>
 				<div className='col-span-9  min-h-screen pl-2 md:col-span-10'>
 					<div className="relative flex flex-wrap items-center justify-between py-3 px-5">
-						<p className="text-2xl">Assets Available</p>
+						<p className="text-2xl">Users</p>
 						<AddUser />
 					</div>
 					<hr/>

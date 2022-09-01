@@ -1,8 +1,34 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 const AssetsTableAdm = () => {
+  const [assets,setAssets] = useState([])
+  const token = localStorage.getItem("jwt")
+  const[search, setSearch] = useState()
 
- 
+
+
+  useEffect(() =>{
+    fetch("http://127.0.0.1:3000/assets",{
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+    .then(res => res.json())
+    .then(data => setAssets(data))
+  },[])
+
+  const handleSearch = ()=>{
+    if (assets){
+      return assets.filter((asset)=>{  
+        if (!search) return assets
+        else
+       return asset.name.toLowerCase().includes(search)
+    })
+    }
+
+}
+console.log(handleSearch().map((asset)=> asset.user))
 
   return (
     <>
@@ -33,6 +59,8 @@ const AssetsTableAdm = () => {
       "
                     id="search"
                     placeholder="Search asset"
+                    onChange={(e)=>setSearch(e.target.value)}
+
                   />
                 </div>
               </div>
@@ -72,26 +100,32 @@ const AssetsTableAdm = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr className="border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                      1
-                    </td>
-                    <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                      Hp15
-                    </td>
-                    <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                      Laptop
-                    </td>
-                    <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                      15 inches, corei5, 8GB RAM ...
-                    </td>
-                    <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                      Jane Doe
-                    </td>
-                    <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                      Allocated
-                    </td>
-                  </tr>
+                  {
+                    handleSearch().map((asset)=>{
+                      return(
+                        <tr key={asset.id} className="border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                          {asset.id}
+                        </td>
+                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          {asset.name}
+                        </td>
+                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          {asset.category}
+                        </td>
+                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          {asset.description}
+                        </td>
+                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                        {(asset.user)? asset.user.name : null}
+                        </td>
+                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          {(asset.status)? "Allocated" : "Not Allocated"}
+                        </td>
+                      </tr>
+                      )
+                    })
+                  }
                 </tbody>
               </table>
             </div>

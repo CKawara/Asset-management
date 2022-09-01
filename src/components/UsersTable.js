@@ -2,20 +2,36 @@ import React, { useState, useEffect } from 'react'
 
 const UsersTable = () => {
 
-  const [users,setUsers] = useState("")
+  const [users,setUsers] = useState([])
+  const token = localStorage.getItem("jwt")
+  const[search, setSearch] = useState()
+  console.log(users)
 
-    useEffect(() => {
+  useEffect(() => {
       
-      fetch('http://127.0.0.1:3000/all_users')
-      .then(res => res.json())
-      .then(data => setUsers(data))
-    
-      
-    }, [])
+    fetch('http://127.0.0.1:3000/users',{
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+    .then(res => res.json())
+    .then(data => setUsers(data))
+    console.log(users);
+  }, [])
 
-  const usersList = Array.from(users)
+  const handleSearch = ()=>{
+    return users.filter((user)=>{  
+      console.log(user); 
+        if (!search) return users
+        else
+       return user.name.toLowerCase().includes(search)
+    })
+}
 
-  const displayAllUsers = usersList.map((user)=> {
+
+
+  const displayAllUsers = handleSearch().map((user)=> {
 
     return(
       <tr key={user.id}  className="border-b transition duration-300 ease-in-out hover:bg-gray-100">
@@ -61,7 +77,8 @@ const UsersTable = () => {
               focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
             "
             id="search"
-            placeholder="Search asset"
+            placeholder="Search User..."
+            onChange={(e)=>setSearch(e.target.value)}
           />
         </div>
     </div>

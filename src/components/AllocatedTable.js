@@ -1,15 +1,22 @@
-import React from 'react';
-import NavBar from './NavBar';
+import React, { useContext, useState } from 'react';
+import { UserContext } from '../custom-hooks/user';
 
 const AllocatedTable = () => {
+  const {user} = useContext(UserContext)
+  const[search, setSearch] = useState()
+  console.log(user)
+
+  const handleSearch = ()=>{
+    return user.assets.filter((asset)=>{  
+        if (!search) return user.assets
+        else
+       return asset.name.toLowerCase().includes(search)
+    })
+}
+
   return (
 
     <>
-      {/* <NavBar/>
-      <div className="relative flex flex-wrap items-center justify-between px-5">
-        <p className="text-3xl">My Assets</p>
-        <hr/>
-      </div> */}
 
       <div className="flex flex-col bg-white m-7 rounded-2xl drop-shadow-md p-3">
         <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -38,6 +45,8 @@ const AllocatedTable = () => {
                     "
                     id="search"
                     placeholder="Search allocated asset..."
+                    onChange={(e)=>setSearch(e.target.value)}
+
                   />
                 </div>
               </div>
@@ -56,11 +65,34 @@ const AllocatedTable = () => {
                     <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                       Description
                     </th>
-                    <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                      Quantity
-                    </th>
+
                   </tr>
                 </thead>
+                <tbody>
+            {
+               (user) ? 
+                handleSearch().map((asset)=>{
+                  return(
+                    <tr key={asset.id} className="border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                    <td key={asset.id} className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{asset.id}</td>
+                    <td key={asset.name} className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                      {asset.name}
+                    </td>
+                    <td key={asset.category} className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                      {asset.category}
+                    </td>
+                    <td key={asset.description} className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                      {asset.description}
+                    </td>
+
+                  </tr>
+                  )
+                })
+              :
+            null
+            }
+            
+          </tbody>
               </table>
               </div>
             </div>
