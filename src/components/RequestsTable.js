@@ -4,6 +4,7 @@ const RequestsTable = () => {
 
     const [requests,setRequests] = useState([])
     const token = localStorage.getItem("jwt")
+    const[search, setSearch] = useState()
   
   
       useEffect(() => {
@@ -34,6 +35,14 @@ const RequestsTable = () => {
       const handleRejected = ()=>{
         alert('rejected')
     }
+    const handleSearch = ()=>{
+        return requests.filter((request)=>{  
+          console.log(request); 
+            if (!search) return requests
+            else
+           return request.name.toLowerCase().includes(search)
+        })
+    }
 
 
   return (
@@ -63,7 +72,9 @@ const RequestsTable = () => {
                 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
                 "
                 id="search"
-                placeholder="Search asset"
+                placeholder="Search request..."
+                onChange={(e)=>setSearch(e.target.value)}
+
             />
             </div>
         </div>
@@ -98,7 +109,7 @@ const RequestsTable = () => {
                 </thead>
                 <tbody>
                    {
-                       requests.map((request)=>{
+                       handleSearch().map((request)=>{
                            return(
                             <tr key={request.id} className="border-b transition duration-300 ease-in-out hover:bg-gray-100">
                             <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{request.asset_id}</td>

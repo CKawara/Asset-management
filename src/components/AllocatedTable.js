@@ -1,8 +1,18 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { UserContext } from '../custom-hooks/user';
 
 const AllocatedTable = () => {
   const {user} = useContext(UserContext)
+  const[search, setSearch] = useState()
+
+  const handleSearch = ()=>{
+    return user.assets.filter((asset)=>{  
+      console.log(asset); 
+        if (!search) return user.assets
+        else
+       return asset.name.toLowerCase().includes(search)
+    })
+}
 
   return (
 
@@ -35,6 +45,8 @@ const AllocatedTable = () => {
                     "
                     id="search"
                     placeholder="Search allocated asset..."
+                    onChange={(e)=>setSearch(e.target.value)}
+
                   />
                 </div>
               </div>
@@ -53,15 +65,13 @@ const AllocatedTable = () => {
                     <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                       Description
                     </th>
-                    <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                      Quantity
-                    </th>
+
                   </tr>
                 </thead>
                 <tbody>
             {
                (user) ? 
-                user.assets.map((asset)=>{
+                handleSearch().map((asset)=>{
                   return(
                     <tr key={asset.id} className="border-b transition duration-300 ease-in-out hover:bg-gray-100">
                     <td key={asset.id} className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{asset.id}</td>
@@ -72,11 +82,9 @@ const AllocatedTable = () => {
                       {asset.category}
                     </td>
                     <td key={asset.description} className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                      {asset.decription}
+                      {asset.description}
                     </td>
-                    <td key={asset.quantity} className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                      {asset.quantity}
-                    </td>
+
                   </tr>
                   )
                 })

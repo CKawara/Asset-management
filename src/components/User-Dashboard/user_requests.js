@@ -1,8 +1,19 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { UserContext } from '../../custom-hooks/user'
 
 const UserTable = () => {
   const {user} = useContext(UserContext)
+  const[search, setSearch] = useState()
+
+  const handleSearch = ()=>{
+    return user.requests.filter((request)=>{  
+      console.log(request); 
+        if (!search) return user.requests
+        else
+       return request.name.toLowerCase().includes(search)
+    })
+}
+
 
   return (
 <div className="flex flex-col bg-white m-7 rounded-2xl drop-shadow-md p-3">
@@ -61,7 +72,7 @@ const UserTable = () => {
           <tbody>
           {
                (user) ? 
-                user.requests.map((asset)=>{
+                handleSearch().map((asset)=>{
                   return(
                     <tr key={asset.id} className="border-b transition duration-300 ease-in-out hover:bg-gray-100">
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{asset.id}</td>

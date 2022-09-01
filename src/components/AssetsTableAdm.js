@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react'
 const AssetsTableAdm = () => {
   const [assets,setAssets] = useState("")
   const token = localStorage.getItem("jwt")
+  const[search, setSearch] = useState()
+
 
 
   useEffect(() =>{

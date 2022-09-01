@@ -9,7 +9,7 @@ import { UserContext } from '../custom-hooks/user'
 
 const UserAssetsTable = () => {
 
-  const [assets,setAssets] = useState("")
+  const [assets,setAssets] = useState([])
   const [showModal, setShowModal] = useState(false);
 
   const [name,setName] = useState("")
@@ -21,6 +21,9 @@ const UserAssetsTable = () => {
   const [assetId, setAssetId] = useState("")
   const [currentUserId] = useState(UserContext)
   const token = localStorage.getItem("jwt")
+  const[search, setSearch] = useState()
+
+
 
 
    console.log(currentUserId, "is currently logged in")
@@ -100,11 +103,18 @@ const UserAssetsTable = () => {
     setName(e.target.parentElement.parentElement.childNodes[1].id)
     setCategory(e.target.parentElement.parentElement.childNodes[2].id)
   }
+  const handleSearch = ()=>{
+    return assets.filter((asset)=>{  
+      console.log(asset); 
+        if (!search) return assets
+        else
+       return asset.name.toLowerCase().includes(search)
+    })
+}
 
 
-  const asetsToArray = Array.from(assets)
 
-  const mappedData = asetsToArray.map((asset)=>{
+  const mappedData = handleSearch().map((asset)=>{
 
     return(
 
@@ -234,7 +244,9 @@ const UserAssetsTable = () => {
         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
       "
                     id="search"
-                    placeholder="Search asset"
+                    placeholder="Search asset..."
+                    onChange={(e)=>setSearch(e.target.value)}
+
                   />
                 </div>
               </div>
