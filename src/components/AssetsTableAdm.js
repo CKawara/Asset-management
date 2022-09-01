@@ -14,7 +14,7 @@ const AssetsTableAdm = () => {
     })
     .then(res => res.json())
     .then(data => console.log(data))
-    // .then(data => setAssets(data))
+    .then(data => setAssets(data))
   },[])
 
   return (

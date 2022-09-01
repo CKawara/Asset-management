@@ -63,7 +63,7 @@ const UserTable = () => {
                (user) ? 
                 user.requests.map((asset)=>{
                   return(
-                    <tr className="border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                    <tr key={asset.id} className="border-b transition duration-300 ease-in-out hover:bg-gray-100">
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{asset.id}</td>
                     <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                       {asset.name}
