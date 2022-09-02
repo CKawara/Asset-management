@@ -9,7 +9,7 @@ const Req = ({props}) => {
 
 
   const handleApprove = () => {
-    fetch(`http://localhost:3000/requests/${request.id}`, {
+    fetch(`https://enventory-management.herokuapp.com/requests/${request.id}`, {
       method: "PATCH",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -34,7 +34,7 @@ const Req = ({props}) => {
   
 
   const handleRejected = () => {
-    fetch(`http://localhost:3000/requests/${request.id}`, {
+    fetch(`https://enventory-management.herokuapp.com/requests/${request.id}`, {
       method: "PATCH",
       headers: {
         Authorization: `Bearer ${token}`,

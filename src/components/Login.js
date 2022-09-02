@@ -27,7 +27,7 @@ const Login = () => {
             password: password
         }
 
-        fetch('http://127.0.0.1:3000/login',{
+        fetch('https://enventory-management.herokuapp.com/login',{
             method: "POST",
             headers: {
                 'Content-Type':'application/json'

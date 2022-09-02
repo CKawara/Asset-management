@@ -22,7 +22,7 @@ const AddUser = () => {
             role: role
         }
 
-        fetch('http://127.0.0.1:3000/users',{
+        fetch('https://enventory-management.herokuapp.com/users',{
             method: 'POST',
             mode:'cors',
             headers: {

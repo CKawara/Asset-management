@@ -21,7 +21,7 @@ const AssetsTableAdm = () => {
 
 
   useEffect(() =>{
-    fetch("http://127.0.0.1:3000/assets",{
+    fetch("https://enventory-management.herokuapp.com/assets",{
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`

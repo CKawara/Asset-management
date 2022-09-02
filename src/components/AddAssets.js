@@ -20,7 +20,7 @@ const AddAssets = () => {
             status: false
         }
 
-        fetch('http://127.0.0.1:3000/assets',{
+        fetch('https://enventory-management.herokuapp.com/assets',{
             method: 'POST',
             // mode:'cors',
             headers: {

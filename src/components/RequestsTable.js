@@ -32,7 +32,7 @@ const RequestsTable = () => {
   
       useEffect(() => {
         
-        fetch('http://127.0.0.1:3000/requests',{
+        fetch('https://enventory-management.herokuapp.com/requests',{
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`

@@ -9,7 +9,7 @@ const UserTable = () => {
 
   useEffect(() => {
 
-    fetch("http://localhost:3000/requests", {
+    fetch("https://enventory-management.herokuapp.com/requests", {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -58,6 +58,7 @@ const UserTable = () => {
         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
       "
       id="search"
+      onChange={(e)=>setSearch(e.target.value)}
       placeholder="Search asset"
     />
   </div>

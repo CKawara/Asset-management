@@ -12,7 +12,7 @@ const NavBar = () => {
     // console.log(user);
 
     function handleLogoutClick() {
-      fetch("http://127.0.0.1:3000/logout", 
+      fetch("https://enventory-management.herokuapp.com/logout", 
       { method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`

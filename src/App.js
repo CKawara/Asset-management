@@ -19,7 +19,7 @@ function App() {
   const {setUser} = useContext(UserContext)
   const token = localStorage.getItem("jwt")
   useEffect(() => {
-    fetch("http://localhost:3000/me",{
+    fetch("https://enventory-management.herokuapp.com/me",{
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`
