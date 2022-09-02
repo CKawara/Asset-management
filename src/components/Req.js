@@ -11,6 +11,8 @@ const Req = ({props}) => {
   const handleApprove = () => {
     fetch(`https://enventory-management.herokuapp.com/requests/${request.id}`, {
       method: "PATCH",
+      mode: "cors",
+
       headers: {
         Authorization: `Bearer ${token}`,
         Accept: "application/json",
@@ -36,6 +38,8 @@ const Req = ({props}) => {
   const handleRejected = () => {
     fetch(`https://enventory-management.herokuapp.com/requests/${request.id}`, {
       method: "PATCH",
+      mode: "cors",
+
       headers: {
         Authorization: `Bearer ${token}`,
         Accept: "application/json",

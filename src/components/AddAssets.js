@@ -22,7 +22,7 @@ const AddAssets = () => {
 
         fetch('https://enventory-management.herokuapp.com/assets',{
             method: 'POST',
-            // mode:'cors',
+            mode:'cors',
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${token}`

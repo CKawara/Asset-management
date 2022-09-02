@@ -56,6 +56,8 @@ const UserAssetsTable = () => {
 
         fetch('https://enventory-management.herokuapp.com/requests',{
             method: 'POST',
+            mode: "cors",
+
             headers: {
               "Accept": "application/json",
               "Content-Type": "application/json",
@@ -82,6 +84,7 @@ const UserAssetsTable = () => {
   useEffect(() =>{
     fetch("https://enventory-management.herokuapp.com/assets",{
       method: "GET",
+      mode: "cors",
       headers: {
         Authorization: `Bearer ${token}`
       }

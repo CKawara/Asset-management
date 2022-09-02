@@ -33,6 +33,7 @@ const UsersTable = () => {
       
     fetch('https://enventory-management.herokuapp.com/users',{
       method: "GET",
+      mode:"cors",
       headers: {
         Authorization: `Bearer ${token}`
       }

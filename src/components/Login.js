@@ -29,6 +29,8 @@ const Login = () => {
 
         fetch('https://enventory-management.herokuapp.com/login',{
             method: "POST",
+            mode: "cors",
+
             headers: {
                 'Content-Type':'application/json'
             },

@@ -23,6 +23,8 @@ const AssetsTableAdm = () => {
   useEffect(() =>{
     fetch("https://enventory-management.herokuapp.com/assets",{
       method: "GET",
+      mode: "cors",
+
       headers: {
         Authorization: `Bearer ${token}`
       }

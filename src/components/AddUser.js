@@ -24,6 +24,7 @@ const AddUser = () => {
 
         fetch('https://enventory-management.herokuapp.com/users',{
             method: 'POST',
+            
             mode:'cors',
             headers: {
                 'Content-Type': 'application/json',

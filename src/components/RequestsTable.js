@@ -34,6 +34,8 @@ const RequestsTable = () => {
         
         fetch('https://enventory-management.herokuapp.com/requests',{
           method: "GET",
+          mode: "cors",
+
           headers: {
             Authorization: `Bearer ${token}`
           }

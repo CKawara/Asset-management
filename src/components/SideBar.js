@@ -11,6 +11,8 @@ const SideBar = () => {
   function handleLogoutClick() {
     fetch("https://enventory-management.herokuapp.com/logout", 
     { method: "DELETE",
+    mode: "cors",
+
     headers: {
       Authorization: `Bearer ${token}`
     }
