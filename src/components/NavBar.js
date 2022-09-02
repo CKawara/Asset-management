@@ -12,20 +12,22 @@ const NavBar = () => {
     // console.log(user);
 
     function handleLogoutClick() {
-      fetch("https://whispering-hollows-91695.herokuapp.com/logout", 
-      { method: "DELETE",
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
-      })
-      .then((r) => {
-        if (r.ok) {
-          localStorage.removeItem("jwt", r.jwt)
-          setUser(null);
-          navigate('/')
-        }
-      });
-  }  
+      // fetch("https://whispering-hollows-91695.herokuapp.com/logout", 
+      // { method: "DELETE",
+      // headers: {
+      //   Authorization: `Bearer ${token}`
+      // }
+      // })
+      // .then((r) => {
+      //   if (r.ok) {
+      //     localStorage.removeItem("jwt", r.jwt)
+      //     setUser(null);
+      //     navigate('/')
+      //   }
+      // });
+      navigate('/')
+      localStorage.removeItem("jwt")
+  } 
   // console.log(user);
     return (
       <>
@@ -60,7 +62,7 @@ const NavBar = () => {
                 <li className="nav-item">
                 <p className="px-4 pt-4 flex items-center text-xs  font-bold uppercase leading-snug text-dark hover:opacity-75"> {user ?user.name : null}</p>
                 </li> 
-                <button onClick={handleLogoutClick} className="px-4 pt-2">
+                <button onClick={handleLogoutClick}  className="px-4 pt-2">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
                     </svg>
