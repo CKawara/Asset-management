@@ -9,7 +9,7 @@ const Req = ({props}) => {
 
 
   const handleApprove = () => {
-    fetch(`http://localhost:3000/requests/${request.id}`, {
+    fetch(`https://whispering-hollows-91695.herokuapp.com/requests/${request.id}`, {
       method: "PATCH",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -34,7 +34,7 @@ const Req = ({props}) => {
   
 
   const handleRejected = () => {
-    fetch(`http://localhost:3000/requests/${request.id}`, {
+    fetch(`https://whispering-hollows-91695.herokuapp.com/requests/${request.id}`, {
       method: "PATCH",
       headers: {
         Authorization: `Bearer ${token}`,

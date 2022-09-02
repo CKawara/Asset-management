@@ -9,7 +9,7 @@ const UserTable = () => {
 
   useEffect(() => {
 
-    fetch("http://localhost:3000/requests", {
+    fetch("https://whispering-hollows-91695.herokuapp.com/requests", {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -21,6 +21,7 @@ const UserTable = () => {
     });
 
   }, [])
+  console.log(requests);
 
   const handleSearch = ()=>{
     return requests.filter((request)=>{  

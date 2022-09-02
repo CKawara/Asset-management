@@ -24,7 +24,7 @@ const RequestAsset = ({item}) => {
         }
 
 
-        fetch('http://127.0.0.1:3000/requests',{
+        fetch('https://whispering-hollows-91695.herokuapp.com/requests',{
             method: 'POST',
             mode:'cors',
             headers: {
