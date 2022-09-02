@@ -24,13 +24,13 @@ function App() {
       headers: {
         Authorization: `Bearer ${token}`
       }
-    })
+    }) 
     .then(r => {
       if(r.ok){
         r.json().then(res => {
           setUser(res)
         })
-      }
+      } 
     })
   }, [])
   return (

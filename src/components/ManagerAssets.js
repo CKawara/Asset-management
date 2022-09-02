@@ -4,7 +4,7 @@ import '../index.css'
 import AddAssets from "./AddAssets";
 import SideBar from "./SideBar";
 
-const ManagerAssets = () => {
+const ManagerAssets = () => { 
 	return (
 		<div className="min-h-screen">
 			<nav className="relative flex flex-wrap shadow-md">

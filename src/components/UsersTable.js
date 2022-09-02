@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import consumer from './consumer'
 
 const UsersTable = () => {
 
@@ -6,6 +7,27 @@ const UsersTable = () => {
   const token = localStorage.getItem("jwt")
   const[search, setSearch] = useState()
   console.log(users)
+
+
+  
+  // From users Broadcast
+
+  const [newUsers,setNewUsers]= useState("")
+
+  consumer.subscriptions.create("UsersChannel",{
+    connected(){
+      console.log("Connected to users Channel");
+    },
+    received(data){
+      setNewUsers(data)
+
+    }
+  })
+  // combine newusers and existing
+  const combinedUsers = [...users,newUsers]
+
+
+
 
   useEffect(() => {
       
@@ -17,18 +39,20 @@ const UsersTable = () => {
     })
     .then(res => res.json())
     .then(data => setUsers(data))
-    console.log(users);
-  }, [])
+  },[])
+
 
   const handleSearch = ()=>{
-    return users.filter((user)=>{  
-      console.log(user); 
-        if (!search) return users
+    return combinedUsers.filter((user)=>{  
+      // console.log(user); 
+        if (!search) return combinedUsers
         else
-       return user.name.toLowerCase().includes(search)
+       return user.name?.toLowerCase().includes(search)
     })
 }
 
+
+  
 
 
   const displayAllUsers = handleSearch().map((user)=> {
@@ -78,6 +102,7 @@ const UsersTable = () => {
             "
             id="search"
             placeholder="Search User..."
+            value={search}
             onChange={(e)=>setSearch(e.target.value)}
           />
         </div>

@@ -69,7 +69,7 @@ const AddAssets = () => {
                     <form onSubmit={handleSubmit}>
                       <div className="grid gap-6 mb-6 md:grid-cols-2">
                         <label
-                          for="name"
+                          htmlFor="name"
                           className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                         >
                           Name
@@ -85,7 +85,7 @@ const AddAssets = () => {
                         />
 
                         <label
-                          for="category"
+                          htmlFor="category"
                           className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                         >
                           Category

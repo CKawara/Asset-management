@@ -5,7 +5,7 @@ const Req = ({props}) => {
   const token = localStorage.getItem("jwt")
   const [request, setRequests] = useState(props)
 
-
+ 
 
 
   const handleApprove = () => {
@@ -55,9 +55,14 @@ const Req = ({props}) => {
       }
     });
   }
+
+  console.log("this are requests",request);
+// let { user: {name},username} = request
+  
   
 
   return (
+    
     <tr
       key={request.id}
       className="border-b transition duration-300 ease-in-out hover:bg-gray-100"
@@ -72,7 +77,7 @@ const Req = ({props}) => {
         {request.category}
       </td>
       <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-        {request.user.name}
+        {/* {  } */}
       </td>
       <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
         {request.quantity}

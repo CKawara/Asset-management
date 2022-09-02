@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import consumer from './consumer'
 import Req from './Req'
 
 const RequestsTable = () => {
@@ -6,6 +7,28 @@ const RequestsTable = () => {
     const [requests, setRequests] = useState([])
     const token = localStorage.getItem("jwt")
     const [myFilter, setMyfileter] = useState("");
+
+
+    // Requests Broadcast
+
+    const [newRequests,setNewRequests] = useState([])
+
+    consumer.subscriptions.create("RequestsChannel",{
+        connected(){
+            console.log("Request Channel Connected");
+        },
+
+        received(data){
+            setNewRequests(data)
+
+        }
+        
+
+    })
+
+
+
+
   
       useEffect(() => {
         
@@ -17,13 +40,18 @@ const RequestsTable = () => {
         })
         .then(res => res.json())
         .then(data => setRequests(data))
-      }, [])
+      },[])
 
-      const filteredReuests = requests.filter((req) => {
+
+    //   Combined request new & existsing
+
+    const combinedRequests = [...requests,newRequests]
+
+      const filteredReuests = combinedRequests.filter((req) => {
         if (myFilter === "") {
           return true;
         } else {
-          return req.name.toLowerCase().search(myFilter) >= 0;
+          return req.name?.toLowerCase().search(myFilter) >= 0;
         }
       });
 
@@ -69,36 +97,34 @@ const RequestsTable = () => {
                 <table className="min-w-full">
                 <thead className="border-b bg-gray-50">
                     <tr>
-                    <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                        Asset id
-                    </th>
-                    <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                        Name
-                    </th>
-                    <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                        Category
-                    </th>
-                    <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                        Owner
-                    </th>
-                    <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                        Quantity
-                    </th>
-                    <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                        Urgency
-                    </th>
-                    <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                        Status
-                    </th>
-                    <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                        Approve
-                    </th>
+                      <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                          Asset id
+                      </th>
+                      <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                          Name
+                      </th>
+                      <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                          Category
+                      </th>
+                      <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                          Owner
+                      </th>
+                      <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                          Quantity
+                      </th>
+                      <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                          Urgency
+                      </th>
+                      <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                          Status
+                      </th>
+                      <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                          Approve
+                      </th>
                     </tr>
                 </thead>
                 <tbody>
-                   {
-                       mappeReq
-                   }
+                   {mappeReq}
                 </tbody>
                 </table>
             </div>

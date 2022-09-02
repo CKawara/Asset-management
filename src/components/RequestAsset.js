@@ -128,7 +128,7 @@ const RequestAsset = ({item}) => {
         </>
         ) : null}
     </>
-    );
+    ); 
 }
 
 export default RequestAsset

@@ -1,10 +1,23 @@
 import React, { useEffect, useState } from 'react'
-
+import consumer from './consumer'
 const AssetsTableAdm = () => {
   const [assets,setAssets] = useState([])
   const token = localStorage.getItem("jwt")
   const[search, setSearch] = useState()
+  const [newAssets,setNewAssets] = useState([])
 
+  // From broadcast 
+  consumer.subscriptions.create("AssetsChannel",{
+    connected(){
+      console.log("Asset Streams Connected")
+    },
+    received(data){
+      setNewAssets(data)
+
+    }
+
+
+  })
 
 
   useEffect(() =>{
@@ -18,12 +31,15 @@ const AssetsTableAdm = () => {
     .then(data => setAssets(data))
   },[])
 
+ const combinedAssets = [...assets,newAssets]
+// remove to lower case
+
   const handleSearch = ()=>{
-    if (assets){
-      return assets.filter((asset)=>{  
+    if (combinedAssets){
+      return combinedAssets.filter((combinedAsset)=>{  
         if (!search) return assets
         else
-       return asset.name.toLowerCase().includes(search)
+       return combinedAsset.name.includes(search)
     })
     }
 
@@ -104,24 +120,24 @@ console.log(handleSearch().map((asset)=> asset.user))
                     handleSearch().map((asset)=>{
                       return(
                         <tr key={asset.id} className="border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                          {asset.id}
-                        </td>
-                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                          {asset.name}
-                        </td>
-                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                          {asset.category}
-                        </td>
-                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                          {asset.description}
-                        </td>
-                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        {(asset.user)? asset.user.name : null}
-                        </td>
-                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                          {(asset.status)? "Allocated" : "Not Allocated"}
-                        </td>
+                          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                            {asset.id}
+                          </td>
+                          <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                            {asset.name}
+                          </td>
+                          <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                            {asset.category}
+                          </td>
+                          <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                            {asset.description}
+                          </td>
+                          <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          {(asset.user)? asset.user.name : null}
+                          </td>
+                          <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                            {(asset.status)? "Allocated" : "Not Allocated"}
+                          </td>
                       </tr>
                       )
                     })

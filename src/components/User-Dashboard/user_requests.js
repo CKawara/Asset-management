@@ -26,7 +26,7 @@ const UserTable = () => {
     return requests.filter((request)=>{  
         if (!search) return user.requests
         else
-       return request.name.toLowerCase().includes(search)
+       return request.name?.toLowerCase().includes(search)
     })
 }
 

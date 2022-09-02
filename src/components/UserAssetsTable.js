@@ -22,20 +22,10 @@ const UserAssetsTable = () => {
   const token = localStorage.getItem("jwt")
   const[search, setSearch] = useState()
 
+ 
 
 
 
-
-  // Broadcast form socket
-   useEffect(() => {
-    // RequestsChannel.received = (data) => 
-    // console.log("am the user requestiing",data)
-    
-    // setReceived(data)
-
-
-  
-  }, [])
 
 
     const handleSubmit = (e)=>{
